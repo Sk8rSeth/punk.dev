@@ -9,7 +9,7 @@
     let menuElement;
     
     // Animation for the menu slide
-    const menuPosition = tweened(-100, {
+    const menuPosition = tweened(-200, {
       duration: 300,
       easing: cubicOut
     });
@@ -20,7 +20,7 @@
       if (menuOpen) {
         menuPosition.set(0);
       } else {
-        menuPosition.set(-100);
+        menuPosition.set(-200);
       }
     }
     

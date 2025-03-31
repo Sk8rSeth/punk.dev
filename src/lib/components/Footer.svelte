@@ -1,6 +1,6 @@
 <div class="footer-container">
     <a href="/store" class="store-section">
-      <div class="section-title">//Store</div>
+      <div class="section-title">//Store —></div>
     </a>
     
     <div class="newsletter-section">

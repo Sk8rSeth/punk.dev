@@ -1,5 +1,5 @@
 <div class="latest-log-post-container">
-    <h2 class="section-title">latest log</h2>
+    <h2 class="section-title">//Latest Log</h2>
     <div class="content-area">
       <!-- Blog post content goes here -->
     </div>

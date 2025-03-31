@@ -1,5 +1,5 @@
 <div class="new-product-container">
-    <h2 class="section-title">//New Products</h2>
+    <h2 class="section-title">//Featured Product</h2>
     <div class="content-area">
       <!-- Product content goes here -->
     </div>

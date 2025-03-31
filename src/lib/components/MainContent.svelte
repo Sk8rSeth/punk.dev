@@ -1,5 +1,5 @@
 <div class="main-content-container">
-    <h2 class="section-title">//home</h2>
+    <h2 class="section-title">//Main</h2>
     <div class="content-area">
       <!-- Content goes here -->
     </div>

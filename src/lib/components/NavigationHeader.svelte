@@ -61,14 +61,16 @@
     }
     
     .logo {
-      font-size: 1.75rem;
+      font-size: 3rem;
       font-weight: bold;
       margin-right: 0.75rem;
       color: var(--color-east-side-800);
+      font-family: var(--font-logo);
     }
     
     .tagline {
       font-size: 1rem;
+      padding-left: 3rem;
       color: var(--color-east-side-600);
     }
     
@@ -127,11 +129,12 @@
       }
       
       .logo {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
       
       .tagline {
         font-size: 0.85rem;
+        padding-left: .5rem;
       }
     }
   </style>
