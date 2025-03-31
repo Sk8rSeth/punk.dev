@@ -5,11 +5,13 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "ADMIN_USERNAME=${ADMIN_USERNAME} ADMIN_PASSWORD=${ADMIN_PASSWORD} npm run tina-build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+		"tina-dev": "tinacms dev -c 'npm run dev'",
+		"tina-build": "tinacms build && vite build"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^4.0.0",
@@ -24,6 +26,9 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
-		"@tailwindcss/vite": "^4.0.17"
+		"@tailwindcss/vite": "^4.0.17",
+		"@tinacms/cli": "^1.9.3",
+		"mdsvex": "^0.12.3",
+		"tinacms": "^2.7.3"
 	}
 }

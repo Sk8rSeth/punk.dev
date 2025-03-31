@@ -3,19 +3,19 @@
     
     const navItems = [
       { id: 'products', title: '//Products', href: '/products' },
-      { id: 'branches', title: '//Branches', href: '/branches' },
       { id: 'logs', title: '//Logs', href: '/logs' },
+      { id: 'branches', title: '//Branches', href: '/branches' },
       { id: 'about', title: '//About', href: '/about' }
     ];
   </script>
   
   <div class="navigation-container">
-    <div class="logo-section">
-      <div class="logo-wrapper">
-        <div class="logo">opunk</div>
-        <div class="tagline">// unconventional art support</div>
-      </div>
-    </div>
+    <a href="/" class="logo-section">
+        <div class="logo-wrapper">
+            <div class="logo">.punk</div>
+            <div class="tagline">// unconventional art support</div>
+        </div>
+    </a>
     
     <!-- Desktop Navigation Links -->
     <div class="nav-links desktop-only">
@@ -51,6 +51,8 @@
       background-color: var(--panel-color);
       border-radius: var(--border-radius);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.2s ease;
     }
     
     .logo-wrapper {
@@ -92,7 +94,7 @@
       transition: background-color 0.2s ease, transform 0.2s ease;
     }
     
-    .nav-item:hover {
+    .nav-item:hover, .logo-section:hover {
       background-color: var(--color-east-side-100);
       color: var(--color-east-side-800);
       transform: translateY(-2px);

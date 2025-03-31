@@ -4,7 +4,7 @@
     </a>
     
     <div class="newsletter-section">
-      <div class="section-title">//Newsletter Signup Form</div>
+      <div class="section-title">//Newsletter Signup</div>
       <form class="newsletter-form">
         <input type="email" placeholder="Enter your email" class="email-input" />
         <button type="submit" class="submit-button">Submit</button>
