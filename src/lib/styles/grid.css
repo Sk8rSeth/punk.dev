@@ -1,0 +1,144 @@
+/* Grid layout styles with color scheme and rounded corners */
+:root {
+    --header-height: 5rem;
+    --footer-height: 5rem;
+    --grid-gap: 0.75rem;
+    --border-radius: 0.75rem;
+    
+    /* Color scheme */
+    --color-east-side-50: #18181b;
+    --color-east-side-100: #f4f0f7;
+    --color-east-side-200: #ebe3f1;
+    --color-east-side-300: #dbcce6;
+    --color-east-side-400: #c3abd5;
+    --color-east-side-500: #a886c0;
+    --color-east-side-600: #956fae;
+    --color-east-side-700: #7e5a96;
+    --color-east-side-800: #6a4d7c;
+    --color-east-side-900: #573f64;
+    --color-east-side-950: #392546;
+    --color-east-side-990: #0e0e11;
+    
+    /* Background and text colors */
+    --background-color: var(--color-east-side-990);
+    --panel-color: var(--color-east-side-50);
+    --text-color: var(--color-east-side-900);
+    --accent-color: var(--color-east-side-600);
+  }
+  
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    /* Define the middle row with two equal height sections using 1fr 1fr */
+    grid-template-rows: var(--header-height) repeat(2, 1fr) var(--footer-height);
+    height: 100vh;
+    width: 100vw;
+    gap: var(--grid-gap);
+    padding: var(--grid-gap);
+    box-sizing: border-box;
+  }
+  
+  /* Base styles for content grid areas */
+  .main-content-area,
+  .new-product-area,
+  .new-blog-area,
+  .side-content-container > div,
+  .feature-board-area > div {
+    background-color: var(--panel-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Grid areas for desktop layout */
+  .navigation-area {
+    grid-column: 1 / 25;
+    grid-row: 1 / 2;
+    /* No background or shadow - these are applied to children */
+  }
+  
+  .main-content-area {
+    grid-column: 1 / 17;
+    grid-row: 2 / 4; /* Span from row 2 to 4 to take up main content area */
+  }
+  
+  .new-product-area {
+    grid-column: 17 / 25;
+    grid-row: 2 / 3; /* First 1fr section */
+  }
+  
+  .new-blog-area {
+    grid-column: 17 / 25;
+    grid-row: 3 / 4; /* Second 1fr section */
+  }
+  
+  .footer-area {
+    grid-column: 1 / 25;
+    grid-row: 4 / 5;
+    /* No background or shadow - these are applied to children */
+  }
+  
+  /* Mobile Layout */
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: var(--header-height) auto auto auto;
+      height: 100vh;
+      overflow-y: auto;
+      gap: var(--grid-gap);
+    }
+    
+    /* Rest of the media query remains unchanged */
+    .navigation-area {
+      grid-column: 1;
+      grid-row: 1;
+      position: sticky;
+      top: var(--grid-gap);
+      z-index: 100;
+    }
+    
+    .main-content-area {
+      grid-column: 1;
+      grid-row: 2;
+      height: auto;
+    }
+    
+    .side-content-container {
+      grid-column: 1;
+      grid-row: 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--grid-gap);
+      background-color: transparent;
+      box-shadow: none;
+    }
+    
+    .feature-board-area {
+      grid-column: 1;
+      grid-row: 4;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--grid-gap);
+      background-color: transparent;
+      box-shadow: none;
+    }
+    
+    .footer-area {
+      display: none; /* Hide the desktop footer on mobile */
+    }
+    
+    /* Hide desktop-specific blog area on mobile */
+    .new-product-area.desktop-only, 
+    .new-blog-area.desktop-only {
+      display: none;
+    }
+  }
