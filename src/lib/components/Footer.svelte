@@ -35,7 +35,6 @@
       padding-left: 1.25rem;
       text-decoration: none;
       color: inherit;
-      border-radius: var(--border-radius);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: background-color 0.2s ease, transform 0.2s ease;
     }
@@ -51,7 +50,6 @@
       display: flex;
       align-items: center;
       padding: 0 1.25rem;
-      border-radius: var(--border-radius);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     
@@ -75,5 +73,11 @@
       flex-grow: 1;
       margin-right: 0.75rem;
       color: var(--color-east-side-500);
+      border-radius: .75rem;
+    }
+
+    .newsletter-form button {
+        border-radius: .75rem;
+        font-family: var(--font-mono);
     }
   </style>

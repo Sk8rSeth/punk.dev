@@ -92,7 +92,6 @@
       align-items: center;
       text-decoration: none;
       color: var(--color-east-side-400);
-      border-radius: var(--border-radius);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       height: 100%;
       transition: background-color 0.2s ease, transform 0.2s ease;
