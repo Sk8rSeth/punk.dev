@@ -44,14 +44,13 @@
       position: relative;
       background-color: transparent;
       box-shadow: none;
-      gap: 0.5rem;
+      gap: var(--grid-gap);
     }
     
     .logo-section {
       flex: 1;
       display: flex;
       align-items: center;
-      padding-left: 1.5rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-decoration: none;
       transition: background-color 0.2s ease, transform 0.2s ease;
@@ -60,26 +59,28 @@
     .logo-wrapper {
       display: flex;
       align-items: baseline;
+      justify-content: space-between;
     }
     
     .logo {
       font-size: 3.5rem;
       font-weight: bold;
       margin-right: 0.75rem;
-      color: var(--color-east-side-700);
+      padding-left: 1rem;
+      color: var(--color-east-side-400);
       font-family: var(--font-logo);
     }
     
     .tagline {
       font-size: 1rem;
-      padding-left: 3rem;
-      color: var(--color-east-side-700);
+      padding-right: 6rem;
+      color: var(--color-east-side-400);
     }
     
     .nav-links {
       flex: 1;
       display: flex;
-      gap: 0.5rem;
+      gap: var(--grid-gap);
       background-color: transparent;
       box-shadow: none;
     }
@@ -90,7 +91,7 @@
       justify-content: center;
       align-items: center;
       text-decoration: none;
-      color: var(--color-east-side-700);
+      color: var(--color-east-side-400);
       border-radius: var(--border-radius);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       height: 100%;

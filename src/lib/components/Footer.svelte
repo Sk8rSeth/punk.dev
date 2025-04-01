@@ -25,7 +25,7 @@
       height: 100%;
       background-color: transparent;
       box-shadow: none;
-      gap: 0.5rem;
+      gap: var(--grid-gap);
     }
     
     .store-section {
