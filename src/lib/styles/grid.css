@@ -1,6 +1,6 @@
 /* Grid layout styles with color scheme and rounded corners */
 :root {
-    --header-height: 5rem;
+    --header-height: 6rem;
     --footer-height: 5rem;
     --grid-gap: 0.75rem;
     --border-radius: 0.75rem;
@@ -50,6 +50,7 @@ html, body {
     gap: var(--grid-gap);
     padding: var(--grid-gap);
     box-sizing: border-box;
+    padding-bottom: 0;
   }
   
   /* Base styles for content grid areas */

@@ -63,7 +63,7 @@
     }
     
     .logo {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: bold;
       margin-right: 0.75rem;
       color: var(--color-east-side-700);
