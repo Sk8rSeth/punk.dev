@@ -9,25 +9,29 @@
     ];
   </script>
   
-  <div class="navigation-container">
-    <a href="/" class="logo-section">
-        <div class="logo-wrapper">
-            <div class="logo">.punk</div>
-            <div class="tagline">// unconventional art support</div>
+  <div class="navigation-container justify-center">
+    <a href="/" class="logo-section punkcard">
+        <div class="punkcard-content content-center">
+            <div class="logo-wrapper">
+                <div class="logo">.punk</div>
+                <div class="tagline">// unconventional art support</div>
+            </div>
         </div>
     </a>
     
     <!-- Desktop Navigation Links -->
     <div class="nav-links desktop-only">
       {#each navItems as item}
-        <a href={item.href} class="nav-item">
-          <span class="nav-text">{item.title}</span>
+        <a href={item.href} class="nav-item punkcard">
+            <div class="punkcard-content content-center">
+                <span class="nav-text">{item.title}</span>
+            </div>
         </a>
       {/each}
     </div>
     
     <!-- Mobile Hamburger Menu -->
-    <div class="mobile-menu">
+    <div class="mobile-menu nav-item">
       <HamburgerMenu {navItems} />
     </div>
   </div>
@@ -48,8 +52,6 @@
       display: flex;
       align-items: center;
       padding-left: 1.5rem;
-      background-color: var(--panel-color);
-      border-radius: var(--border-radius);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-decoration: none;
       transition: background-color 0.2s ease, transform 0.2s ease;
@@ -64,14 +66,14 @@
       font-size: 3rem;
       font-weight: bold;
       margin-right: 0.75rem;
-      color: var(--color-east-side-800);
+      color: var(--color-east-side-700);
       font-family: var(--font-logo);
     }
     
     .tagline {
       font-size: 1rem;
       padding-left: 3rem;
-      color: var(--color-east-side-600);
+      color: var(--color-east-side-700);
     }
     
     .nav-links {
@@ -89,7 +91,6 @@
       align-items: center;
       text-decoration: none;
       color: var(--color-east-side-700);
-      background-color: var(--panel-color);
       border-radius: var(--border-radius);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       height: 100%;
@@ -97,8 +98,8 @@
     }
     
     .nav-item:hover, .logo-section:hover {
-      background-color: var(--color-east-side-100);
-      color: var(--color-east-side-800);
+      background-color: rgb(244, 240, 247, .2);
+      color: var(--color-east-side-500);
       transform: translateY(-2px);
     }
     

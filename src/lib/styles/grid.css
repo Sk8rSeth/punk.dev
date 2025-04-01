@@ -34,6 +34,11 @@ html, body {
     background-color: var(--background-color);
     color: var(--text-color);
   }
+
+  ::selection {
+    background-color: rgba(219, 204, 230, .5);
+    color: var(--color-east-side-50);
+  }
   
   .grid-container {
     display: grid;
@@ -51,9 +56,8 @@ html, body {
   .main-content-area,
   .new-product-area,
   .new-blog-area,
-  .side-content-container > div,
-  .feature-board-area > div {
-    background-color: var(--panel-color);
+  .side-content-container > div {
+    /* background-color: var(--panel-color); */
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -86,6 +90,62 @@ html, body {
     grid-row: 4 / 5;
     /* No background or shadow - these are applied to children */
   }
+
+.punkcard {
+    position: relative;
+    border-radius: var(--border-radius);
+    z-index: 1;
+}
+
+.punkcard > .punkcard-content:hover::before, .punkcard:hover::after {
+    opacity: 1;
+}
+
+.punkcard > .punkcard-content::before, .punkcard::after {
+    position: absolute;
+    content: "";
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+.punkcard > .punkcard-content::before {
+    background: radial-gradient(
+        1000px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.02),
+        transparent 40%
+    );
+    z-index: 3;
+}
+
+.punkcard::after {
+    background: radial-gradient(
+        1000px circle at var(--mouse-x) var(--mouse-y),
+        rgba(106, 77, 124, 1),
+        transparent 40%
+    );
+    z-index: 2;
+}
+
+.punkcard > .punkcard-content {
+    background-color: var(--panel-color);
+    border-radius: inherit;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    inset: 1px;
+    padding: .5rem 1rem;
+    z-index: 4;
+}
+
+.punkcard .inner-container {
+    z-index: 8;
+    position: relative;
+}
   
   /* Mobile Layout */
   @media (max-width: 768px) {
@@ -122,16 +182,6 @@ html, body {
       box-shadow: none;
     }
     
-    .feature-board-area {
-      grid-column: 1;
-      grid-row: 4;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--grid-gap);
-      background-color: transparent;
-      box-shadow: none;
-    }
-    
     .footer-area {
       display: none; /* Hide the desktop footer on mobile */
     }
@@ -142,3 +192,4 @@ html, body {
       display: none;
     }
   }
+  

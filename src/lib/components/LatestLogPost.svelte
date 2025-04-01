@@ -1,13 +1,16 @@
-<div class="latest-log-post-container">
-    <h2 class="section-title">//Latest Log</h2>
-    <div class="content-area">
-      <!-- Blog post content goes here -->
+<div class="latest-log-post-container punkcard">
+    <div class="punkcard-content">
+        <div class="inner-container">
+            <h2 class="section-title">//Latest Log</h2>
+            <div class="content-area">
+            <!-- Blog post content goes here -->
+            </div>
+        </div>
     </div>
   </div>
   
   <style>
     .latest-log-post-container {
-      padding: 1rem;
       height: 100%;
       display: flex;
       flex-direction: column;

@@ -1,13 +1,16 @@
-<div class="new-product-container">
-    <h2 class="section-title">//Featured Product</h2>
-    <div class="content-area">
-      <!-- Product content goes here -->
+<div class="new-product-container punkcard">
+    <div class="punkcard-content">
+        <div class="inner-container">
+            <h2 class="section-title">//Featured Product</h2>
+            <div class="content-area">
+            <!-- Product content goes here -->
+            </div>
+        </div>
     </div>
   </div>
   
   <style>
     .new-product-container {
-      padding: 1rem;
       height: 100%;
       display: flex;
       flex-direction: column;

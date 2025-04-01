@@ -1,15 +1,13 @@
+/* Global styles and font setup */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 @font-face {
     font-family: 'outline.punk';
     src: url('$lib/fonts/outline.punk.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
-  }
-  
-/* Global styles and font setup */
-
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
-
+  } 
 
 :root {
     /* Color scheme */
@@ -96,4 +94,8 @@ input:focus {
   font-family: var(--font-mono);
   font-weight: 700;
   color: var(--color-east-side-700);
+}
+
+.content-center {
+    align-content: center;
 }
