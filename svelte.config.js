@@ -28,7 +28,7 @@ const config = {
     }),
     paths: {
       // Required for GitHub Pages - your repo name
-      base: process.env.NODE_ENV === 'production' ? '/your-repo-name' : '',
+      base: process.env.NODE_ENV === 'production' ? '/punk.dev' : '',
     }
   }
 };
