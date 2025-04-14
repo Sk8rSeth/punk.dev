@@ -1,5 +1,5 @@
 // svelte.config.js
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -18,7 +18,18 @@ const config = {
   ],
 
   kit: {
-    adapter: adapter()
+    adapter: adapter({
+      // default options are shown
+      pages: 'build',
+      assets: 'build',
+      fallback: 'index.html',
+      precompress: false,
+      strict: true
+    }),
+    paths: {
+      // Required for GitHub Pages - your repo name
+      base: process.env.NODE_ENV === 'production' ? '/your-repo-name' : '',
+    }
   }
 };
 

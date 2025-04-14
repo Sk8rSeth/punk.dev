@@ -1,8 +1,11 @@
 // tina/config.js
 import { defineConfig } from "tinacms";
 var config_default = defineConfig({
-  // Local mode for self-hosting
-  localMode: true,
+  branch: process.env.GITHUB_BRANCH || "main",
+  clientId: process.env.TINA_CLIENT_ID || "",
+  // For local dev, can be empty
+  token: process.env.TINA_TOKEN || "",
+  // For local dev, can be empty
   build: {
     outputFolder: "admin",
     publicFolder: "static"
@@ -12,6 +15,10 @@ var config_default = defineConfig({
       mediaRoot: "uploads",
       publicFolder: "static"
     }
+  },
+  // Configure TinaCMS to work with static deployment
+  router: {
+    baseUrl: ""
   },
   schema: {
     collections: [
