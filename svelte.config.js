@@ -1,4 +1,3 @@
-// svelte.config.js
 import adapter from '@sveltejs/adapter-static';
 import { mdsvex } from 'mdsvex';
 
@@ -10,7 +9,7 @@ const config = {
     mdsvex({
       extensions: ['.md', '.svx'],
       layout: {
-        blog: 'src/lib/layouts/LogPost.svelte',
+        blog: 'src/lib/layouts/BlogPost.svelte',
         product: 'src/lib/layouts/Product.svelte',
         branch: 'src/lib/layouts/Branch.svelte'
       }
@@ -19,7 +18,6 @@ const config = {
 
   kit: {
     adapter: adapter({
-      // default options are shown
       pages: 'build',
       assets: 'build',
       fallback: 'index.html',
@@ -27,8 +25,7 @@ const config = {
       strict: true
     }),
     paths: {
-      // Required for GitHub Pages - your repo name
-      base: process.env.NODE_ENV === 'production' ? '/punk.dev' : '',
+      base: ''
     }
   }
 };

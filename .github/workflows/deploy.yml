@@ -23,12 +23,8 @@ jobs:
       - name: Install dependencies
         run: npm install
         
-      - name: Build TinaCMS and SvelteKit
-        run: npm run tina-build
-        env:
-          TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
-          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-          GITHUB_BRANCH: ${{ github.ref_name }}
+      - name: Build SvelteKit site
+        run: npm run build
           
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
