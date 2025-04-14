@@ -67,14 +67,14 @@
       font-weight: bold;
       margin-right: 0.75rem;
       padding-left: 1rem;
-      color: var(--color-east-side-400);
+      color: var(--color-east-side-500);
       font-family: var(--font-logo);
     }
     
     .tagline {
       font-size: 1rem;
       padding-right: 6rem;
-      color: var(--color-east-side-400);
+      color: var(--color-east-side-500);
     }
     
     .nav-links {
@@ -91,7 +91,7 @@
       justify-content: center;
       align-items: center;
       text-decoration: none;
-      color: var(--color-east-side-400);
+      color: var(--color-east-side-500);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       height: 100%;
       transition: background-color 0.2s ease, transform 0.2s ease;
@@ -99,7 +99,7 @@
     
     .nav-item:hover, .logo-section:hover {
       background-color: rgb(244, 240, 247, .2);
-      color: var(--color-east-side-500);
+      color: var(--color-east-side-400);
       transform: translateY(-2px);
     }
     
