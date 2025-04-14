@@ -27,9 +27,7 @@ const config = {
 	paths: {
 		base: '', // Correct for custom domain
 		assets: '' // Make sure assets path is correct
-	},
-	// Add this for proper asset loading
-	trailingSlash: 'never'
+	}
   }
 };
 
