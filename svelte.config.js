@@ -9,7 +9,7 @@ const config = {
     mdsvex({
       extensions: ['.md', '.svx'],
       layout: {
-        blog: 'src/lib/layouts/BlogPost.svelte',
+        log: 'src/lib/layouts/LogPost.svelte',
         product: 'src/lib/layouts/Product.svelte',
         branch: 'src/lib/layouts/Branch.svelte'
       }
