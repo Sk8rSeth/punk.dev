@@ -21,12 +21,13 @@ const config = {
       pages: 'build',
       assets: 'build',
       fallback: 'index.html',
-      precompress: false
+      precompress: false,
+	  trailingSlash: 'always'
     }),
 	paths: {
 		base: '', // Correct for custom domain
 		assets: '' // Make sure assets path is correct
-	}
+	},
   }
 };
 
