@@ -21,8 +21,7 @@ const config = {
       pages: 'build',
       assets: 'build',
       fallback: 'index.html',
-      precompress: false,
-      strict: true
+      precompress: false
     }),
 	paths: {
 		base: '', // Correct for custom domain
