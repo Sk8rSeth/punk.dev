@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: Copy index to 404
-        run: cp ~/index.html ~/404.html
+        run: ls -la
           
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
