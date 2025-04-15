@@ -6,6 +6,10 @@ import Footer from '$lib/components/Footer.svelte';
 import { onMount } from 'svelte';
 import { afterNavigate } from '$app/navigation';
 
+import { fly } from 'svelte/transition'
+
+/** @type {{children: import('svelte').Snippet}} */
+let { children, data } = $props();
   // Define the handler function outside onMount
   const handleOnMouseMove = e => {
     const { currentTarget: target } = e;
@@ -36,17 +40,25 @@ import { afterNavigate } from '$app/navigation';
 </script>
 
 <div class="grid-container">
-<div class="navigation-area">
-    <NavigationHeader />
-</div>
+    <div class="navigation-area">
+        <NavigationHeader />
+    </div>
 
-<!-- This is where page-specific content will be rendered -->
-<slot />
+    <!-- This is where page-specific content will be rendered -->
+    {#key data.url}
+    <div style="display:contents;"
+      in:fly={{ x: -200, duration: 300, delay: 300 }}
+      out:fly={{ x: 200, duration: 300 }}
+    >
+      <slot />
+    </div>
+  {/key}
+  
 
-<div class="footer-area desktop-only">
-    <Footer />
-</div>
-<div class="legal">&copy;2025 .punk Labs. created with love and hate by <a href="https://sethdoes.dev">RedBeard</a></div>
+    <div class="footer-area desktop-only">
+        <Footer />
+    </div>
+    <div class="legal">&copy;2025 .punk Labs. created with love and hate by <a href="https://sethdoes.dev">RedBeard</a></div>
 </div>
 
 <style>
@@ -72,9 +84,4 @@ import { afterNavigate } from '$app/navigation';
     display: none;
     }
 }
-
-:global(.navigation-refresh) {
-    /* Just a minimal change to force recalculation */
-    transform: translateZ(0);
-  }
 </style>

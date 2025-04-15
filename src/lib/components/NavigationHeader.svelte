@@ -10,7 +10,7 @@
   </script>
   
   <div class="navigation-container justify-center">
-    <a href="/" class="logo-section punkcard">
+    <a href="/" data-sveltekit-reload class="logo-section punkcard">
         <div class="punkcard-content content-center">
             <div class="logo-wrapper">
                 <div class="logo">.punk</div>
@@ -22,7 +22,7 @@
     <!-- Desktop Navigation Links -->
     <div class="nav-links desktop-only">
       {#each navItems as item}
-        <a href={item.href} class="nav-item punkcard">
+        <a href={item.href} data-sveltekit-reload class="nav-item punkcard">
             <div class="punkcard-content content-center">
                 <span class="nav-text">{item.title}</span>
             </div>
