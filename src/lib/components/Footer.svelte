@@ -1,14 +1,14 @@
 <div class="footer-container">
-    <a href="/store" class="store-section punkcard">
+    <a href="#" class="store-section punkcard">
         <div class="punkcard-content content-center">
-            <div class="section-title">//Store —></div>
+            <div class="section-title">//Store —> (coming soong)</div>
         </div>
     </a>
     
     <div class="newsletter-section punkcard">
         <div class="punkcard-content content-center">
             <div class="inner-container">
-                <div class="section-title">//Newsletter Signup</div>
+                <div class="section-title content-center">//Newsletter-Signup</div>
                 <form class="newsletter-form">
                     <input type="email" placeholder="Enter your email" class="email-input" />
                     <button type="submit" class="submit-button">Submit</button>
@@ -51,12 +51,6 @@
       align-items: center;
       padding: 0 1.25rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .section-title {
-      font-weight: bold;
-      white-space: nowrap;
-      margin-right: 1rem;
     }
     
     .newsletter-form {

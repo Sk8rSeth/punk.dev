@@ -54,8 +54,8 @@ type Query {
   collections: [Collection!]!
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
-  blog(relativePath: String): Blog!
-  blogConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: BlogFilter): BlogConnection!
+  log(relativePath: String): Log!
+  logConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: LogFilter): LogConnection!
   product(relativePath: String): Product!
   productConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ProductFilter): ProductConnection!
   branch(relativePath: String): Branch!
@@ -65,7 +65,7 @@ type Query {
 }
 
 input DocumentFilter {
-  blog: BlogFilter
+  log: LogFilter
   product: ProductFilter
   branch: BranchFilter
   siteConfig: SiteConfigFilter
@@ -94,9 +94,9 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Blog | Product | Branch | SiteConfig | Folder
+union DocumentNode = Log | Product | Branch | SiteConfig | Folder
 
-type Blog implements Node & Document {
+type Log implements Node & Document {
   title: String!
   date: String!
   excerpt: String
@@ -136,7 +136,7 @@ input RichTextFilter {
   exists: Boolean
 }
 
-input BlogFilter {
+input LogFilter {
   title: StringFilter
   date: DatetimeFilter
   excerpt: StringFilter
@@ -145,15 +145,15 @@ input BlogFilter {
   body: RichTextFilter
 }
 
-type BlogConnectionEdges {
+type LogConnectionEdges {
   cursor: String!
-  node: Blog
+  node: Log
 }
 
-type BlogConnection implements Connection {
+type LogConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
-  edges: [BlogConnectionEdges]
+  edges: [LogConnectionEdges]
 }
 
 type Product implements Node & Document {
@@ -260,8 +260,8 @@ type Mutation {
   deleteDocument(collection: String, relativePath: String!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   createFolder(collection: String, relativePath: String!): DocumentNode!
-  updateBlog(relativePath: String!, params: BlogMutation!): Blog!
-  createBlog(relativePath: String!, params: BlogMutation!): Blog!
+  updateLog(relativePath: String!, params: LogMutation!): Log!
+  createLog(relativePath: String!, params: LogMutation!): Log!
   updateProduct(relativePath: String!, params: ProductMutation!): Product!
   createProduct(relativePath: String!, params: ProductMutation!): Product!
   updateBranch(relativePath: String!, params: BranchMutation!): Branch!
@@ -271,7 +271,7 @@ type Mutation {
 }
 
 input DocumentUpdateMutation {
-  blog: BlogMutation
+  log: LogMutation
   product: ProductMutation
   branch: BranchMutation
   siteConfig: SiteConfigMutation
@@ -279,13 +279,13 @@ input DocumentUpdateMutation {
 }
 
 input DocumentMutation {
-  blog: BlogMutation
+  log: LogMutation
   product: ProductMutation
   branch: BranchMutation
   siteConfig: SiteConfigMutation
 }
 
-input BlogMutation {
+input LogMutation {
   title: String
   date: String
   excerpt: String

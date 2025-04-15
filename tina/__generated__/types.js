@@ -5,8 +5,8 @@ export function gql(strings, ...args) {
   });
   return str;
 }
-export const BlogPartsFragmentDoc = gql`
-    fragment BlogParts on Blog {
+export const LogPartsFragmentDoc = gql`
+    fragment LogParts on Log {
   __typename
   title
   date
@@ -48,9 +48,9 @@ export const SiteConfigPartsFragmentDoc = gql`
   }
 }
     `;
-export const BlogDocument = gql`
-    query blog($relativePath: String!) {
-  blog(relativePath: $relativePath) {
+export const LogDocument = gql`
+    query log($relativePath: String!) {
+  log(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -63,13 +63,13 @@ export const BlogDocument = gql`
       }
       id
     }
-    ...BlogParts
+    ...LogParts
   }
 }
-    ${BlogPartsFragmentDoc}`;
-export const BlogConnectionDocument = gql`
-    query blogConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: BlogFilter) {
-  blogConnection(
+    ${LogPartsFragmentDoc}`;
+export const LogConnectionDocument = gql`
+    query logConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: LogFilter) {
+  logConnection(
     before: $before
     after: $after
     first: $first
@@ -99,12 +99,12 @@ export const BlogConnectionDocument = gql`
           }
           id
         }
-        ...BlogParts
+        ...LogParts
       }
     }
   }
 }
-    ${BlogPartsFragmentDoc}`;
+    ${LogPartsFragmentDoc}`;
 export const ProductDocument = gql`
     query product($relativePath: String!) {
   product(relativePath: $relativePath) {
@@ -278,11 +278,11 @@ export const SiteConfigConnectionDocument = gql`
     ${SiteConfigPartsFragmentDoc}`;
 export function getSdk(requester) {
   return {
-    blog(variables, options) {
-      return requester(BlogDocument, variables, options);
+    log(variables, options) {
+      return requester(LogDocument, variables, options);
     },
-    blogConnection(variables, options) {
-      return requester(BlogConnectionDocument, variables, options);
+    logConnection(variables, options) {
+      return requester(LogConnectionDocument, variables, options);
     },
     product(variables, options) {
       return requester(ProductDocument, variables, options);

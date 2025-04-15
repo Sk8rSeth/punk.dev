@@ -16,11 +16,6 @@
       flex-direction: column;
     }
     
-    .section-title {
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-    
     .content-area {
       flex-grow: 1;
     }
@@ -30,9 +25,5 @@
         padding: 0.5rem;
       }
       
-      .section-title {
-        margin-bottom: 0.5rem;
-        font-size: 1rem;
-      }
     }
   </style>

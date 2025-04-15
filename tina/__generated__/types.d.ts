@@ -82,8 +82,8 @@ export type Query = {
   collections: Array<Collection>;
   node: Node;
   document: DocumentNode;
-  blog: Blog;
-  blogConnection: BlogConnection;
+  log: Log;
+  logConnection: LogConnection;
   product: Product;
   productConnection: ProductConnection;
   branch: Branch;
@@ -114,18 +114,18 @@ export type QueryDocumentArgs = {
 };
 
 
-export type QueryBlogArgs = {
+export type QueryLogArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 
-export type QueryBlogConnectionArgs = {
+export type QueryLogConnectionArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Float']['input']>;
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<BlogFilter>;
+  filter?: InputMaybe<LogFilter>;
 };
 
 
@@ -174,7 +174,7 @@ export type QuerySiteConfigConnectionArgs = {
 };
 
 export type DocumentFilter = {
-  blog?: InputMaybe<BlogFilter>;
+  log?: InputMaybe<LogFilter>;
   product?: InputMaybe<ProductFilter>;
   branch?: InputMaybe<BranchFilter>;
   siteConfig?: InputMaybe<SiteConfigFilter>;
@@ -217,10 +217,10 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Blog | Product | Branch | SiteConfig | Folder;
+export type DocumentNode = Log | Product | Branch | SiteConfig | Folder;
 
-export type Blog = Node & Document & {
-  __typename?: 'Blog';
+export type Log = Node & Document & {
+  __typename?: 'Log';
   title: Scalars['String']['output'];
   date: Scalars['String']['output'];
   excerpt?: Maybe<Scalars['String']['output']>;
@@ -260,7 +260,7 @@ export type RichTextFilter = {
   exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type BlogFilter = {
+export type LogFilter = {
   title?: InputMaybe<StringFilter>;
   date?: InputMaybe<DatetimeFilter>;
   excerpt?: InputMaybe<StringFilter>;
@@ -269,17 +269,17 @@ export type BlogFilter = {
   body?: InputMaybe<RichTextFilter>;
 };
 
-export type BlogConnectionEdges = {
-  __typename?: 'BlogConnectionEdges';
+export type LogConnectionEdges = {
+  __typename?: 'LogConnectionEdges';
   cursor: Scalars['String']['output'];
-  node?: Maybe<Blog>;
+  node?: Maybe<Log>;
 };
 
-export type BlogConnection = Connection & {
-  __typename?: 'BlogConnection';
+export type LogConnection = Connection & {
+  __typename?: 'LogConnection';
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
-  edges?: Maybe<Array<Maybe<BlogConnectionEdges>>>;
+  edges?: Maybe<Array<Maybe<LogConnectionEdges>>>;
 };
 
 export type Product = Node & Document & {
@@ -398,8 +398,8 @@ export type Mutation = {
   deleteDocument: DocumentNode;
   createDocument: DocumentNode;
   createFolder: DocumentNode;
-  updateBlog: Blog;
-  createBlog: Blog;
+  updateLog: Log;
+  createLog: Log;
   updateProduct: Product;
   createProduct: Product;
   updateBranch: Branch;
@@ -442,15 +442,15 @@ export type MutationCreateFolderArgs = {
 };
 
 
-export type MutationUpdateBlogArgs = {
+export type MutationUpdateLogArgs = {
   relativePath: Scalars['String']['input'];
-  params: BlogMutation;
+  params: LogMutation;
 };
 
 
-export type MutationCreateBlogArgs = {
+export type MutationCreateLogArgs = {
   relativePath: Scalars['String']['input'];
-  params: BlogMutation;
+  params: LogMutation;
 };
 
 
@@ -490,7 +490,7 @@ export type MutationCreateSiteConfigArgs = {
 };
 
 export type DocumentUpdateMutation = {
-  blog?: InputMaybe<BlogMutation>;
+  log?: InputMaybe<LogMutation>;
   product?: InputMaybe<ProductMutation>;
   branch?: InputMaybe<BranchMutation>;
   siteConfig?: InputMaybe<SiteConfigMutation>;
@@ -498,13 +498,13 @@ export type DocumentUpdateMutation = {
 };
 
 export type DocumentMutation = {
-  blog?: InputMaybe<BlogMutation>;
+  log?: InputMaybe<LogMutation>;
   product?: InputMaybe<ProductMutation>;
   branch?: InputMaybe<BranchMutation>;
   siteConfig?: InputMaybe<SiteConfigMutation>;
 };
 
-export type BlogMutation = {
+export type LogMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   date?: InputMaybe<Scalars['String']['input']>;
   excerpt?: InputMaybe<Scalars['String']['input']>;
@@ -541,7 +541,7 @@ export type SiteConfigMutation = {
   shopify?: InputMaybe<SiteConfigShopifyMutation>;
 };
 
-export type BlogPartsFragment = { __typename: 'Blog', title: string, date: string, excerpt?: string | null, featuredImage?: string | null, tags?: Array<string | null> | null, body?: any | null };
+export type LogPartsFragment = { __typename: 'Log', title: string, date: string, excerpt?: string | null, featuredImage?: string | null, tags?: Array<string | null> | null, body?: any | null };
 
 export type ProductPartsFragment = { __typename: 'Product', title: string, price?: string | null, category?: string | null, featuredImage?: string | null, shopifyLink?: string | null, body?: any | null };
 
@@ -549,24 +549,24 @@ export type BranchPartsFragment = { __typename: 'Branch', title: string, feature
 
 export type SiteConfigPartsFragment = { __typename: 'SiteConfig', mailchimp?: { __typename: 'SiteConfigMailchimp', signupUrl?: string | null } | null, shopify?: { __typename: 'SiteConfigShopify', storeUrl?: string | null } | null };
 
-export type BlogQueryVariables = Exact<{
+export type LogQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type BlogQuery = { __typename?: 'Query', blog: { __typename: 'Blog', id: string, title: string, date: string, excerpt?: string | null, featuredImage?: string | null, tags?: Array<string | null> | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type LogQuery = { __typename?: 'Query', log: { __typename: 'Log', id: string, title: string, date: string, excerpt?: string | null, featuredImage?: string | null, tags?: Array<string | null> | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
-export type BlogConnectionQueryVariables = Exact<{
+export type LogConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Float']['input']>;
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<BlogFilter>;
+  filter?: InputMaybe<LogFilter>;
 }>;
 
 
-export type BlogConnectionQuery = { __typename?: 'Query', blogConnection: { __typename?: 'BlogConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'BlogConnectionEdges', cursor: string, node?: { __typename: 'Blog', id: string, title: string, date: string, excerpt?: string | null, featuredImage?: string | null, tags?: Array<string | null> | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type LogConnectionQuery = { __typename?: 'Query', logConnection: { __typename?: 'LogConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'LogConnectionEdges', cursor: string, node?: { __typename: 'Log', id: string, title: string, date: string, excerpt?: string | null, featuredImage?: string | null, tags?: Array<string | null> | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type ProductQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -625,8 +625,8 @@ export type SiteConfigConnectionQueryVariables = Exact<{
 
 export type SiteConfigConnectionQuery = { __typename?: 'Query', siteConfigConnection: { __typename?: 'SiteConfigConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SiteConfigConnectionEdges', cursor: string, node?: { __typename: 'SiteConfig', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, mailchimp?: { __typename: 'SiteConfigMailchimp', signupUrl?: string | null } | null, shopify?: { __typename: 'SiteConfigShopify', storeUrl?: string | null } | null } | null } | null> | null } };
 
-export const BlogPartsFragmentDoc = gql`
-    fragment BlogParts on Blog {
+export const LogPartsFragmentDoc = gql`
+    fragment LogParts on Log {
   __typename
   title
   date
@@ -668,9 +668,9 @@ export const SiteConfigPartsFragmentDoc = gql`
   }
 }
     `;
-export const BlogDocument = gql`
-    query blog($relativePath: String!) {
-  blog(relativePath: $relativePath) {
+export const LogDocument = gql`
+    query log($relativePath: String!) {
+  log(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -683,13 +683,13 @@ export const BlogDocument = gql`
       }
       id
     }
-    ...BlogParts
+    ...LogParts
   }
 }
-    ${BlogPartsFragmentDoc}`;
-export const BlogConnectionDocument = gql`
-    query blogConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: BlogFilter) {
-  blogConnection(
+    ${LogPartsFragmentDoc}`;
+export const LogConnectionDocument = gql`
+    query logConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: LogFilter) {
+  logConnection(
     before: $before
     after: $after
     first: $first
@@ -719,12 +719,12 @@ export const BlogConnectionDocument = gql`
           }
           id
         }
-        ...BlogParts
+        ...LogParts
       }
     }
   }
 }
-    ${BlogPartsFragmentDoc}`;
+    ${LogPartsFragmentDoc}`;
 export const ProductDocument = gql`
     query product($relativePath: String!) {
   product(relativePath: $relativePath) {
@@ -899,11 +899,11 @@ export const SiteConfigConnectionDocument = gql`
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-      blog(variables: BlogQueryVariables, options?: C): Promise<{data: BlogQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: BlogQueryVariables, query: string}> {
-        return requester<{data: BlogQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: BlogQueryVariables, query: string}, BlogQueryVariables>(BlogDocument, variables, options);
+      log(variables: LogQueryVariables, options?: C): Promise<{data: LogQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: LogQueryVariables, query: string}> {
+        return requester<{data: LogQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: LogQueryVariables, query: string}, LogQueryVariables>(LogDocument, variables, options);
       },
-    blogConnection(variables?: BlogConnectionQueryVariables, options?: C): Promise<{data: BlogConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: BlogConnectionQueryVariables, query: string}> {
-        return requester<{data: BlogConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: BlogConnectionQueryVariables, query: string}, BlogConnectionQueryVariables>(BlogConnectionDocument, variables, options);
+    logConnection(variables?: LogConnectionQueryVariables, options?: C): Promise<{data: LogConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: LogConnectionQueryVariables, query: string}> {
+        return requester<{data: LogConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: LogConnectionQueryVariables, query: string}, LogConnectionQueryVariables>(LogConnectionDocument, variables, options);
       },
     product(variables: ProductQueryVariables, options?: C): Promise<{data: ProductQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ProductQueryVariables, query: string}> {
         return requester<{data: ProductQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ProductQueryVariables, query: string}, ProductQueryVariables>(ProductDocument, variables, options);

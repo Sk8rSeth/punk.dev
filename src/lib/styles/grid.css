@@ -145,7 +145,7 @@ a.punkcard:hover {
     position: absolute;
     top: 0px;
     left: 0px;
-    inset: 1px;
+    inset: 2px;
     padding: .5rem 1rem;
     z-index: 4;
 }
@@ -188,6 +188,10 @@ a.punkcard:hover {
       gap: var(--grid-gap);
       background-color: transparent;
       box-shadow: none;
+    }
+    .section-title {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
     }
     
     .footer-area {

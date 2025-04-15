@@ -91,9 +91,10 @@ input:focus {
 
 /* Section titles styling */
 .section-title {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  color: var(--color-east-side-500);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--color-east-side-500);
+    font-weight: bold;
 }
 
 .content-center {

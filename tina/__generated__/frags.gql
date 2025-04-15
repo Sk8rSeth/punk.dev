@@ -1,4 +1,4 @@
-fragment BlogParts on Blog {
+fragment LogParts on Log {
   __typename
   title
   date

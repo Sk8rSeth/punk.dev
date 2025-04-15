@@ -15,12 +15,7 @@
       display: flex;
       flex-direction: column;
     }
-    
-    .section-title {
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-    
+
     .content-area {
       flex-grow: 1;
     }

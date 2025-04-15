@@ -4,22 +4,36 @@ import '../lib/styles/grid.css';
 import NavigationHeader from '$lib/components/NavigationHeader.svelte';
 import Footer from '$lib/components/Footer.svelte';
 import { onMount } from 'svelte';
-    
-    onMount(() => {
-        for(const card of document.querySelectorAll(".punkcard")) {
-            card.onmousemove = e => handleOnMouseMove(e);
-        }
-        const handleOnMouseMove = e => {
-            const { currentTarget: target } = e;
-            const rect = target.getBoundingClientRect(),
-                x = e.clientX - rect.left,
-                y = e.clientY - rect.top;
-                target.style.setProperty("--mouse-x", `${x}px`);
-                target.style.setProperty("--mouse-y", `${y}px`);
-        }
+import { afterNavigate } from '$app/navigation';
 
-    });
-  </script>
+  // Define the handler function outside onMount
+  const handleOnMouseMove = e => {
+    const { currentTarget: target } = e;
+    const rect = target.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+    
+    target.style.setProperty("--mouse-x", `${x}px`);
+    target.style.setProperty("--mouse-y", `${y}px`);
+  }
+
+  // Function to attach the event handlers
+  function attachMouseMoveHandlers() {
+    for(const card of document.querySelectorAll(".punkcard")) {
+      card.onmousemove = e => handleOnMouseMove(e);
+    }
+  }
+
+  onMount(() => {
+    // Initial setup
+    attachMouseMoveHandlers();
+  });
+
+  afterNavigate(() => {
+    // This runs after every navigation
+    attachMouseMoveHandlers();
+  });
+</script>
 
 <div class="grid-container">
 <div class="navigation-area">
@@ -58,4 +72,9 @@ import { onMount } from 'svelte';
     display: none;
     }
 }
+
+:global(.navigation-refresh) {
+    /* Just a minimal change to force recalculation */
+    transform: translateZ(0);
+  }
 </style>
