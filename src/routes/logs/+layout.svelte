@@ -38,7 +38,7 @@
     
   </script>
   
-<div class="main-content-area">
+<div class="main-content-area logs-content-container">
     <div class="main-content-container punkcard">
         <div class="punkcard-content">
             <div class="inner-container">
@@ -88,7 +88,7 @@
         <div class="inner-container">
             <h2 class="section-title">//Logs</h2>  
             <div class="archive-list">
-                {#each blogPosts as post}
+                {#each logPosts as post}
                 <button 
                     class="archive-item" 
                     class:active={selectedPost && selectedPost.slug === post.slug} 
@@ -99,7 +99,7 @@
                 </button>
                 {/each}
                 
-                {#if blogPosts.length === 0}
+                {#if logPosts.length === 0}
                 <div class="no-posts">No posts yet.</div>
                 {/if}
             </div>
@@ -117,17 +117,7 @@
     .content-area {
       flex-grow: 1;
     }
-/*     
-    .main-content-area {
-      grid-column: 1 / 17;
-      background-color: var(--panel-color);
-      border-radius: var(--border-radius);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 2rem;
-      overflow-y: auto;
-      max-height: calc(100vh - var(--header-height) - var(--footer-height) - (var(--grid-gap) * 2));
-    }
-     */
+
     .logs-archive {
       grid-column: 17 / 25;
       grid-row: 2 / 4;
@@ -139,6 +129,10 @@
       height: 100%;
       /* max-height: calc(100vh - var(--header-height) - var(--footer-height) - (var(--grid-gap) * 2)); */
     }
+
+    .logs-archive > .punkcard-content, .logs-content-container > .punkcard > .punkcard-content {
+        overflow: scroll;
+      }
     
     .archive-header {
       padding: 1.5rem;
@@ -280,18 +274,19 @@
     }
     
     @media (max-width: 768px) {
-      .logs-layout {
-        display: flex;
-        flex-direction: column;
-        gap: var(--grid-gap);
-      }
       
       .main-content-area, .logs-archive {
         max-height: none;
       }
+
+      .logs-content-container {
+        grid-column: 1;
+        grid-row: 2 / 5;
+      }
       
       .logs-archive {
-        height: 300px;
+        grid-column: 1;
+        grid-row: 5;
       }
     }
   </style>
