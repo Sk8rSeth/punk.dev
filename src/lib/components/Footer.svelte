@@ -74,4 +74,27 @@
         border-radius: .75rem;
         font-family: var(--font-mono);
     }
+
+    @media (max-width: 768px) {
+        .footer-container {
+            display: grid;
+        }
+        .footer-container .newsletter-section {
+            padding: 0;
+            align-items: unset;
+        }
+
+        .footer-container .newsletter-section > .punkcard-content {
+            position: relative;
+            width: 100%;
+        }
+
+        .footer-container .newsletter-section .inner-container {
+            display: inline;
+        }
+        .footer-container .newsletter-section .newsletter-form {
+            margin-left: 0;
+        }
+
+    }
   </style>

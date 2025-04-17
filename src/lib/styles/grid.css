@@ -101,12 +101,9 @@ html, body {
     z-index: 1;
 }
 
-a.punkcard:hover {
-    background-color: var(--panel-color-hover);
-}
-
-.punkcard > .punkcard-content:hover::before, .punkcard:hover::after {
-    opacity: 1;
+.punkcard .inner-container {
+    z-index: 8;
+    position: relative;
 }
 
 .punkcard > .punkcard-content::before, .punkcard::after {
@@ -117,26 +114,6 @@ a.punkcard:hover {
     height: 100%;
     left: 0px;
     top: 0px;
-    opacity: 0;
-    transition: opacity 500ms;
-}
-
-.punkcard > .punkcard-content::before {
-    background: radial-gradient(
-        1000px circle at var(--mouse-x) var(--mouse-y),
-        rgba(255, 255, 255, 0.02),
-        transparent 40%
-    );
-    z-index: 3;
-}
-
-.punkcard::after {
-    background: radial-gradient(
-        800px circle at var(--mouse-x) var(--mouse-y),
-        rgba(0, 166, 255, 0.5),
-        transparent 40%
-    );
-    z-index: 2;
 }
 
 .punkcard > .punkcard-content {
@@ -145,16 +122,47 @@ a.punkcard:hover {
     position: absolute;
     top: 0px;
     left: 0px;
-    inset: 2px;
     padding: .5rem 1rem;
     z-index: 4;
+    inset: 2px;
 }
 
-.punkcard .inner-container {
-    z-index: 8;
-    position: relative;
+/* dekstop only mouse effects */
+@media (min-width: 769px) {
+    a.punkcard:hover {
+        background-color: var(--panel-color-hover);
+    }
+
+    .punkcard > .punkcard-content:hover::before, .punkcard:hover::after {
+        opacity: 1;
+    }
+
+    .punkcard > .punkcard-content::before, .punkcard::after {
+        opacity: 0;
+        transition: opacity 500ms;
+    }
+
+    .punkcard > .punkcard-content::before {
+        background: radial-gradient(
+            1000px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.02),
+            transparent 40%
+        );
+        z-index: 3;
+    }
+
+    .punkcard::after {
+        background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(0, 166, 255, 0.5),
+            transparent 40%
+        );
+        z-index: 2;
+    }
+
 }
-  
+
+
   /* Mobile Layout */
   @media (max-width: 768px) {
     .grid-container {
@@ -164,7 +172,7 @@ a.punkcard:hover {
       overflow-y: auto;
       gap: var(--grid-gap);
     }
-    
+
     /* Rest of the media query remains unchanged */
     .navigation-area {
       grid-column: 1;
@@ -176,32 +184,37 @@ a.punkcard:hover {
     
     .main-content-area {
       grid-column: 1;
-      grid-row: 2;
+      grid-row: 2 / 4;
+      height: auto;
+    }    
+
+    .new-blog-area {
+      grid-row: 4;
       height: auto;
     }
+
+    .new-product-area {
+      grid-row: 5;
+      height: auto;
+    }
+
+    .footer-area {
+        grid-column: 1;
+        grid-row: 6;
+    }
     
-    .side-content-container {
+    .new-blog-area, .new-product-area {
       grid-column: 1;
-      grid-row: 3;
       display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: var(--grid-gap);
       background-color: transparent;
       box-shadow: none;
     }
+
     .section-title {
         margin-bottom: 0.5rem;
         font-size: 1rem;
     }
     
-    .footer-area {
-      display: none; /* Hide the desktop footer on mobile */
-    }
-    
-    /* Hide desktop-specific blog area on mobile */
-    .new-product-area.desktop-only, 
-    .new-blog-area.desktop-only {
-      display: none;
-    }
   }
   

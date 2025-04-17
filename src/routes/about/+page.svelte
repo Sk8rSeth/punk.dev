@@ -6,7 +6,7 @@
             <div class="inner-container">
                 <h2 class="section-title">//About-Us</h2>
                 <div class="content-area">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi provident omnis facere in libero commodi quasi repudiandae esse ex culpa.</p>
+                   
                 </div>
             </div>
         </div>

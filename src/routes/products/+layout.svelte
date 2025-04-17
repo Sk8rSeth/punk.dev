@@ -5,7 +5,7 @@
     /** @type {import('./$types').LayoutData} */
     export let data;
     
-    let logPosts = [];
+    let productsPosts = [];
     let selectedPost = null;
     let currentSlug = '';
     
@@ -13,15 +13,15 @@
     onMount(async () => {
       // Get the current path and extract slug
       const path = window.location.pathname;
-      const match = path.match(/\/logs\/([^\/]+)/);
+      const match = path.match(/\/products\/([^\/]+)/);
       currentSlug = match ? match[1] : '';
       
-      // Fetch all blog posts for the archive
-      logPosts = await getContentFromDirectory('log');
+      // Fetch all bproducts posts for the archive
+      productsPosts = await getContentFromDirectory('products');
       
       // If we're on a post page, set the selected post
       if (currentSlug) {
-        selectedPost = logPosts.find(post => post.slug === currentSlug);
+        selectedPost = productsPosts.find(post => post.slug === currentSlug);
       }
     });
     
@@ -32,7 +32,7 @@
       window.history.pushState(
         {}, 
         post.title, 
-        `/logs/${post.slug}`
+        `/products/${post.slug}`
       );
     }
     
@@ -42,7 +42,7 @@
     <div class="main-content-container punkcard">
         <div class="punkcard-content">
             <div class="inner-container">
-                <h2 class="section-title">//Selected-Log</h2>
+                <h2 class="section-title">//Product</h2>
                 {#if selectedPost}
                 <div class="content-area">
                     <div class="post-content">
@@ -86,9 +86,9 @@
 <div class="logs-archive punkcard">
     <div class="punkcard-content">
         <div class="inner-container">
-            <h2 class="section-title">//Logs</h2>  
+            <h2 class="section-title">//All-Products</h2>  
             <div class="archive-list">
-                {#each blogPosts as post}
+                {#each productsPosts as post}
                 <button 
                     class="archive-item" 
                     class:active={selectedPost && selectedPost.slug === post.slug} 
@@ -99,7 +99,7 @@
                 </button>
                 {/each}
                 
-                {#if blogPosts.length === 0}
+                {#if productsPosts.length === 0}
                 <div class="no-posts">No posts yet.</div>
                 {/if}
             </div>

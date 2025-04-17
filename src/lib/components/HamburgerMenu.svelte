@@ -39,35 +39,35 @@
     });
   </script>
   
-  <div class="hamburger-container">
-    <button class="hamburger-icon" on:click={toggleMenu} aria-label="Menu">
-      <div class="bar" class:bar1-active={menuOpen}></div>
-      <div class="bar" class:bar2-active={menuOpen}></div>
-      <div class="bar" class:bar3-active={menuOpen}></div>
-    </button>
-    
-    <div 
-      class="menu-overlay" 
-      class:active={menuOpen} 
-      style="opacity: {menuOpen ? 0.5 : 0}"
-      on:click={toggleMenu}
-    ></div>
-    
-    <div 
-      bind:this={menuElement}
-      class="menu-container" 
-      style="transform: translateX({$menuPosition}%)"
-    >
-      <div class="menu-header">Menu</div>
-      <div class="menu-items">
-        {#each navItems as item}
-          <a href={item.href} class="menu-item" on:click={toggleMenu}>
-            {item.title}
-          </a>
-        {/each}
-      </div>
+    <div class="hamburger-container punkcard-content">
+        <button class="hamburger-icon" on:click={toggleMenu} aria-label="Menu">
+            <div class="bar" class:bar1-active={menuOpen}></div>
+            <div class="bar" class:bar2-active={menuOpen}></div>
+            <div class="bar" class:bar3-active={menuOpen}></div>
+        </button>
+
+        <div 
+        class="menu-overlay" 
+        class:active={menuOpen} 
+        style="opacity: {menuOpen ? 0.5 : 0}"
+        on:click={toggleMenu}
+        ></div>
+
+        <div 
+        bind:this={menuElement}
+        class="menu-container" 
+        style="transform: translateX({$menuPosition}%)"
+        >
+            <div class="menu-items">
+            {#each navItems as item}
+                <a href={item.href} class="menu-item" on:click={toggleMenu}>
+                {item.title}
+            </a>
+            {/each}
+            </div>
+            <div class="legal">&copy;2025 .punk Labs. created with love and hate by <a href="https://sethdoes.dev">RedBeard</a></div>
+        </div>
     </div>
-  </div>
   
   <style>
     .hamburger-container {
@@ -77,7 +77,9 @@
     /* Only show hamburger on mobile */
     @media (max-width: 768px) {
       .hamburger-container {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       
       .hamburger-icon {
@@ -101,7 +103,7 @@
       }
       
       .bar1-active {
-        transform: rotate(-45deg) translate(-5px, 6px);
+        transform: rotate(-45deg) translate(-6px, 6px);
       }
       
       .bar2-active {
@@ -109,7 +111,7 @@
       }
       
       .bar3-active {
-        transform: rotate(45deg) translate(-5px, -6px);
+        transform: rotate(45deg) translate(-8px, -8px);
       }
       
       .menu-overlay {
@@ -157,22 +159,39 @@
         flex-direction: column;
         gap: 0.5rem;
         padding: 0 1rem;
+        margin-top: 6rem;
       }
       
       .menu-item {
-        padding: 0.75rem;
+        padding: 1.5rem;
         text-decoration: none;
-        color: var(--color-east-side-700);
+        color: var(--text-color);
         font-weight: bold;
-        background-color: var(--color-east-side-100);
+        background-color: var(--background-color);
         border-radius: var(--border-radius);
         transition: background-color 0.2s ease, transform 0.1s ease;
+        margin: 1rem 0;
+        font-size: 1.5rem;
       }
       
       .menu-item:hover {
         background-color: var(--color-east-side-200);
         color: var(--color-east-side-800);
         transform: translateX(2px);
+      }
+
+      .legal {
+        position: absolute;
+        bottom: 1rem;
+        left: 0;
+        padding: 1rem 2rem;
+        font-size: .8rem;
+        text-align: center;
+      }
+
+      .legal a {
+        text-decoration: underline;
+        color: var(--text-color);
       }
     }
   </style>

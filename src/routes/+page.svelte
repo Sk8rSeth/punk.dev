@@ -9,36 +9,26 @@
   </div>
   
   <!-- Desktop product section -->
-  <div class="new-product-area desktop-only">
+  <div class="new-product-area">
     <NewProducts />
   </div>
   
   <!-- Desktop blog section -->
-  <div class="new-blog-area desktop-only">
+  <div class="new-blog-area">
     <LatestLogPost />
   </div>
   
-  <!-- Mobile layout for side content -->
-  <div class="side-content-container mobile-only">
-    <div class="new-product-area">
-      <NewProducts />
-    </div>
-    <div class="new-blog-area">
-      <LatestLogPost />
-    </div>
-  </div>
-  
   <style>
-    .mobile-only {
+    /* .mobile-only {
       display: none;
-    }
+    } */
     
-    .mobile-newsletter-container {
+    /* .mobile-newsletter-container {
       padding: 0.75rem;
       height: 100%;
       display: flex;
       flex-direction: column;
-    }
+    } */
     
     .newsletter-form {
       display: flex;
@@ -51,12 +41,12 @@
     }
     
     @media (max-width: 768px) {
-      .desktop-only {
+      /* .desktop-only {
         display: none;
       }
       
       .mobile-only {
         display: block;
-      }
+      } */
     }
   </style>

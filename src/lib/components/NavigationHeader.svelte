@@ -31,7 +31,7 @@
     </div>
     
     <!-- Mobile Hamburger Menu -->
-    <div class="mobile-menu nav-item">
+    <div class="mobile-menu nav-item punkcard">
       <HamburgerMenu {navItems} />
     </div>
   </div>
@@ -122,20 +122,26 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-right: 1rem;
       }
       
       .logo-section {
         flex: 4; /* Take up 80% of the width */
       }
+
+      .logo-wrapper {
+        align-items: center;
+      }
       
       .logo {
-        font-size: 2rem;
+        font-size: 3rem;
+        padding-left: 0;
       }
       
       .tagline {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         padding-left: .5rem;
+        padding-right: .5rem;
+        text-align: right;
       }
     }
   </style>

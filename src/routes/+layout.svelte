@@ -55,16 +55,13 @@ let { children, data } = $props();
   {/key}
   
 
-    <div class="footer-area desktop-only">
+    <div class="footer-area">
         <Footer />
     </div>
     <div class="legal">&copy;2025 .punk Labs. created with love and hate by <a href="https://sethdoes.dev">RedBeard</a></div>
 </div>
 
 <style>
-.mobile-only {
-    display: none;
-}
 
 .legal {
     width: 100%;
@@ -80,8 +77,10 @@ let { children, data } = $props();
 }
 
 @media (max-width: 768px) {
-    .desktop-only {
-    display: none;
+
+    .legal {
+        display: none;
     }
+
 }
 </style>
