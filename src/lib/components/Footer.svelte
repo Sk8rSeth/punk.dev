@@ -1,7 +1,7 @@
 <div class="footer-container">
     <a href="#" class="store-section punkcard">
         <div class="punkcard-content content-center">
-            <div class="section-title">//Store —> (coming soong)</div>
+            <div class="section-title">//Store —> (coming soon)</div>
         </div>
     </a>
     
