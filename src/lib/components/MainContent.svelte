@@ -3,7 +3,9 @@
         <div class="inner-container">
             <h2 class="section-title">//Main</h2>
             <div class="content-area">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi provident omnis facere in libero commodi quasi repudiandae esse ex culpa.</p>
+                <p>Hello,</p>
+                <p>Right now this site is under construction. However, eventually it will be the hub for all dotPUNK content, products, logs and documentation, and links.</p>
+                <p>thanks for visiting, and please sign up for the newsletter below for info about Pathlight.Maps and darlings.rip information.</p>
             </div>
         </div>
     </div>
