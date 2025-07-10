@@ -14,7 +14,7 @@
         <div class="punkcard-content content-center">
             <div class="logo-wrapper">
                 <div class="logo">.punk</div>
-                <div class="tagline">// unconventional art support</div>
+                <div class="tagline">// engineering is art</div>
             </div>
         </div>
     </a>
@@ -58,7 +58,7 @@
     
     .logo-wrapper {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
     }
     
