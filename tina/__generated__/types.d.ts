@@ -289,6 +289,7 @@ export type Product = Node & Document & {
   category?: Maybe<Scalars['String']['output']>;
   featuredImage?: Maybe<Scalars['String']['output']>;
   shopifyLink?: Maybe<Scalars['String']['output']>;
+  date: Scalars['String']['output'];
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -301,6 +302,7 @@ export type ProductFilter = {
   category?: InputMaybe<StringFilter>;
   featuredImage?: InputMaybe<ImageFilter>;
   shopifyLink?: InputMaybe<StringFilter>;
+  date?: InputMaybe<DatetimeFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
 
@@ -519,6 +521,7 @@ export type ProductMutation = {
   category?: InputMaybe<Scalars['String']['input']>;
   featuredImage?: InputMaybe<Scalars['String']['input']>;
   shopifyLink?: InputMaybe<Scalars['String']['input']>;
+  date?: InputMaybe<Scalars['String']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
@@ -543,7 +546,7 @@ export type SiteConfigMutation = {
 
 export type LogPartsFragment = { __typename: 'Log', title: string, date: string, excerpt?: string | null, featuredImage?: string | null, tags?: Array<string | null> | null, body?: any | null };
 
-export type ProductPartsFragment = { __typename: 'Product', title: string, price?: string | null, category?: string | null, featuredImage?: string | null, shopifyLink?: string | null, body?: any | null };
+export type ProductPartsFragment = { __typename: 'Product', title: string, price?: string | null, category?: string | null, featuredImage?: string | null, shopifyLink?: string | null, date: string, body?: any | null };
 
 export type BranchPartsFragment = { __typename: 'Branch', title: string, featuredImage?: string | null, body?: any | null };
 
@@ -573,7 +576,7 @@ export type ProductQueryVariables = Exact<{
 }>;
 
 
-export type ProductQuery = { __typename?: 'Query', product: { __typename: 'Product', id: string, title: string, price?: string | null, category?: string | null, featuredImage?: string | null, shopifyLink?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type ProductQuery = { __typename?: 'Query', product: { __typename: 'Product', id: string, title: string, price?: string | null, category?: string | null, featuredImage?: string | null, shopifyLink?: string | null, date: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type ProductConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -585,7 +588,7 @@ export type ProductConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ProductConnectionQuery = { __typename?: 'Query', productConnection: { __typename?: 'ProductConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ProductConnectionEdges', cursor: string, node?: { __typename: 'Product', id: string, title: string, price?: string | null, category?: string | null, featuredImage?: string | null, shopifyLink?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type ProductConnectionQuery = { __typename?: 'Query', productConnection: { __typename?: 'ProductConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ProductConnectionEdges', cursor: string, node?: { __typename: 'Product', id: string, title: string, price?: string | null, category?: string | null, featuredImage?: string | null, shopifyLink?: string | null, date: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type BranchQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -644,6 +647,7 @@ export const ProductPartsFragmentDoc = gql`
   category
   featuredImage
   shopifyLink
+  date
   body
 }
     `;

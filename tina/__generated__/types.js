@@ -24,6 +24,7 @@ export const ProductPartsFragmentDoc = gql`
   category
   featuredImage
   shopifyLink
+  date
   body
 }
     `;

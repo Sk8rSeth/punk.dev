@@ -96,6 +96,12 @@ var config_default = defineConfig({
             description: "The URL to the product on your Shopify store"
           },
           {
+            type: "datetime",
+            name: "date",
+            label: "Post Date",
+            required: true
+          },
+          {
             type: "rich-text",
             name: "body",
             label: "Description",

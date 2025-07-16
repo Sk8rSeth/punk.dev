@@ -127,7 +127,7 @@ html, body {
     inset: 2px;
 }
 
-/* dekstop only mouse effects */
+/* desktop only mouse effects */
 @media (min-width: 769px) {
     a.punkcard:hover {
         background-color: var(--panel-color-hover);

@@ -15,6 +15,7 @@ fragment ProductParts on Product {
   category
   featuredImage
   shopifyLink
+  date
   body
 }
 

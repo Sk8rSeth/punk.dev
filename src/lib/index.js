@@ -8,8 +8,3 @@ const handleOnMouseMove = e => {
     target.style.setProperty("--mouse-x, `${x}px`");
     target.style.setProperty("--mouse-y, `${y}px`");
 }
-
-for(const card of document.querySelectorAll(".punkcard")) {
-    console.log(card);
-    // card.onmousemove = e => handleOnMouseMove(e);
-}

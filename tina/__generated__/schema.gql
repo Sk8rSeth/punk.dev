@@ -162,6 +162,7 @@ type Product implements Node & Document {
   category: String
   featuredImage: String
   shopifyLink: String
+  date: String!
   body: JSON
   id: ID!
   _sys: SystemInfo!
@@ -174,6 +175,7 @@ input ProductFilter {
   category: StringFilter
   featuredImage: ImageFilter
   shopifyLink: StringFilter
+  date: DatetimeFilter
   body: RichTextFilter
 }
 
@@ -300,6 +302,7 @@ input ProductMutation {
   category: String
   featuredImage: String
   shopifyLink: String
+  date: String
   body: JSON
 }
 
