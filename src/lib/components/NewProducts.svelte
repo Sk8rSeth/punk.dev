@@ -34,10 +34,10 @@
             <div class="inner-container">
               <h2 class="section-title">//Featured Product</h2>
               <div class="content-area">
-                <div class="product-content">
+                <div class="featured-image-container">
                   <img src={product.featuredImage} alt={product.title} class="featured-image">
-                  <h2>{product.title}</h2>
                 </div>
+                <h2>{product.title}</h2>
               </div>
             </div>
           </div>
@@ -69,11 +69,10 @@
       transform: translateY(-2px);
     }
 
-    .product-content {
+    .featured-image-container,  .content-area h2 {
       text-align: center;
     }
-
-    .product-content img {
+    .featured-image-container img {
       border-radius: var(--border-radius);
     }
   </style>
