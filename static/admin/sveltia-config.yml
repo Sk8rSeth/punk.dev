@@ -1,0 +1,80 @@
+# static/admin/config.yml
+backend:
+  name: github
+  repo: Sk8rSeth/punk.dev # Replace with your actual repo
+  branch: main
+  base_url: https://api.netlify.com  # For GitHub Auth
+  auth_endpoint: auth
+
+# Alternative for GitHub Pages (requires manual OAuth setup)
+# backend:
+#   name: github
+#   repo: your-username/your-repo-name
+#   branch: main
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+# Optional: Logo and site info
+site_url: https://punk.dev
+display_url: https://punk.dev
+logo_url: https://punk.dev/logo.png
+
+collections:
+  - name: "log"
+    label: "Log Posts"
+    label_singular: "Log Post"
+    folder: "src/content/log"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "products"
+    label: "Products"
+    label_singular: "Product"
+    folder: "src/content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Price", name: "price", widget: "string", required: false }
+      - { label: "Category", name: "category", widget: "string", required: false }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
+      - { label: "Shopify Product URL", name: "shopifyLink", widget: "string", required: false }
+      - { label: "Featured Product", name: "featured", widget: "boolean", default: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "branches"
+    label: "Branches"
+    label_singular: "Branch"
+    folder: "src/content/branches"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
+      - { label: "Content", name: "body", widget: "markdown" }
+
+  - name: "config"
+    label: "Site Configuration"
+    files:
+      - label: "Site Settings"
+        name: "settings"
+        file: "src/content/config/config.json"
+        fields:
+          - label: "Mailchimp Settings"
+            name: "mailchimp"
+            widget: "object"
+            fields:
+              - { label: "Signup Form URL", name: "signupUrl", widget: "string", required: false }
+          - label: "Shopify Settings"
+            name: "shopify"
+            widget: "object"
+            fields:
+              - { label: "Store URL", name: "storeUrl", widget: "string", required: false }
