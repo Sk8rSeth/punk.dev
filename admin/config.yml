@@ -8,7 +8,7 @@ backend:
 
 # Local development backend (comment out for production)
 local_backend: true
-# publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
