@@ -1,37 +1,38 @@
 # static/admin/config.yml
 backend:
   name: github
-  repo: Sk8rSeth/punk.dev  # Replace with your actual GitHub repo
+  repo: Sk8rSeth/punk.dev # Replace with your actual repo
   branch: main
-  base_url: https://api.netlify.com
+  base_url: https://api.netlify.com  # For GitHub Auth
   auth_endpoint: auth
 
-# Local development backend (comment out for production)
-local_backend: true
-publish_mode: editorial_workflow
+# Alternative for GitHub Pages (requires manual OAuth setup)
+# backend:
+#   name: github
+#   repo: your-username/your-repo-name
+#   branch: main
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
-# Site information
+# Optional: Logo and site info
 site_url: https://punk.dev
 display_url: https://punk.dev
-logo_url: https://punk.dev/favicon.svg
+logo_url: https://punk.dev/logo.png
 
-# Collections
 collections:
   - name: "log"
     label: "Log Posts"
     label_singular: "Log Post"
     folder: "src/content/log"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "Brief description of the post" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
       - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
-      - { label: "Tags", name: "tags", widget: "list", required: false, hint: "Add relevant tags" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "products"
@@ -42,11 +43,11 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Price", name: "price", widget: "string", required: false, hint: "e.g., $29.99" }
+      - { label: "Price", name: "price", widget: "string", required: false }
       - { label: "Category", name: "category", widget: "string", required: false }
       - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
-      - { label: "Shopify Product URL", name: "shopifyLink", widget: "string", required: false, hint: "Full URL to product on Shopify store" }
-      - { label: "Featured Product", name: "featured", widget: "boolean", default: false, hint: "Show this product on the homepage" }
+      - { label: "Shopify Product URL", name: "shopifyLink", widget: "string", required: false }
+      - { label: "Featured Product", name: "featured", widget: "boolean", default: false }
       - { label: "Description", name: "body", widget: "markdown" }
 
   - name: "branches"
@@ -70,12 +71,10 @@ collections:
           - label: "Mailchimp Settings"
             name: "mailchimp"
             widget: "object"
-            collapsed: true
             fields:
-              - { label: "Signup Form URL", name: "signupUrl", widget: "string", required: false, hint: "Mailchimp form action URL" }
+              - { label: "Signup Form URL", name: "signupUrl", widget: "string", required: false }
           - label: "Shopify Settings"
             name: "shopify"
             widget: "object"
-            collapsed: true
             fields:
-              - { label: "Store URL", name: "storeUrl", widget: "string", required: false, hint: "Your main Shopify store URL" }
+              - { label: "Store URL", name: "storeUrl", widget: "string", required: false }
