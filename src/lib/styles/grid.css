@@ -88,6 +88,11 @@ html, body {
     grid-column: 17 / 25;
     grid-row: 3 / 4; /* Second 1fr section */
   }
+
+  .info-sidebar {
+    grid-column: 17 / 25;
+    grid-row: 2 / 4;
+  }
   
   .footer-area {
     grid-column: 1 / 25;
@@ -125,6 +130,12 @@ html, body {
     padding: .5rem 1rem;
     z-index: 4;
     inset: 2px;
+}
+
+.main-content-container, .info-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* desktop only mouse effects */

@@ -12,11 +12,6 @@
   </div>
   
   <style>
-    .main-content-container {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
 
     .content-area {
       flex-grow: 1;

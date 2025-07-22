@@ -5,7 +5,7 @@
     /** @type {import('./$types').LayoutData} */
     export let data;
     
-    let logPosts = [];
+    let branches = [];
     let selectedPost = null;
     let currentSlug = '';
     
@@ -17,11 +17,11 @@
       currentSlug = match ? match[1] : '';
       
       // Fetch all blog posts for the archive
-      logPosts = await getContentFromDirectory('log');
+      branches = await getContentFromDirectory('branch');
       
       // If we're on a post page, set the selected post
       if (currentSlug) {
-        selectedPost = logPosts.find(post => post.slug === currentSlug);
+        selectedPost = branches.find(post => post.slug === currentSlug);
       }
     });
     
@@ -32,7 +32,7 @@
       window.history.pushState(
         {}, 
         post.title, 
-        `/logs/${post.slug}`
+        `/branches/${post.slug}`
       );
     }
     
@@ -42,7 +42,7 @@
     <div class="main-content-container punkcard">
         <div class="punkcard-content">
             <div class="inner-container">
-                <h2 class="section-title">//Selected-Log</h2>
+                <h2 class="section-title">//Selected-Branch</h2>
                 {#if selectedPost}
                 <div class="content-area">
                     <div class="post-content">
@@ -75,7 +75,7 @@
                 </div>
                 {:else}
                 <div class="content-area">
-                    <p>Select a post from the archive to read.  —></p>
+                    <p>Select a branch from the tree.  —></p>
                 </div>
                 {/if}
             </div>
@@ -86,9 +86,9 @@
 <div class="logs-archive punkcard">
     <div class="punkcard-content">
         <div class="inner-container">
-            <h2 class="section-title">//Logs</h2>  
+            <h2 class="section-title">//Tree Branches</h2>  
             <div class="archive-list">
-                {#each logPosts as post}
+                {#each branches as post}
                 <button 
                     class="archive-item" 
                     class:active={selectedPost && selectedPost.slug === post.slug} 
@@ -99,7 +99,7 @@
                 </button>
                 {/each}
                 
-                {#if logPosts.length === 0}
+                {#if branches.length === 0}
                 <div class="no-posts">No posts yet.</div>
                 {/if}
             </div>

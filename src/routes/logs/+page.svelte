@@ -5,7 +5,7 @@
   let blogPosts = [];
   
   onMount(async () => {
-    blogPosts = await getContentFromDirectory('blog');
+    logPosts = await getContentFromDirectory('log');
   });
 </script>
 

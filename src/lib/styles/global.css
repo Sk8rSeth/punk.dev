@@ -9,6 +9,13 @@
     font-style: normal;
   } 
 
+  @font-face {
+    font-family: 'spleen';
+    src: url('$lib/fonts/spleen-16x32.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  } 
+
 :root {
     /* Color scheme */
     --color-east-side-50: #18181b;
@@ -27,6 +34,7 @@
   /* Font families */
   --font-main: 'Space Grotesk', sans-serif;
   --font-mono: 'Space Mono', monospace;
+  --font-code: 'spleen', monospace;
   --font-logo: 'outline.punk', sans-serif;
 }
 
@@ -43,12 +51,24 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-east-side-400);
 }
 
-.logo {
+code, .code {
+  font-family: var(--font-code);
+}
+
+.logo, .punk {
     font-family: var(--font-logo);
 }
 
 p {
+  color: var(--color-east-side-500);
+}
+
+a {
   color: var(--color-east-side-400);
+}
+
+a:hover {
+  color: var(--color-east-side-900);
 }
 
 .mono {
@@ -94,7 +114,7 @@ input:focus {
 .section-title {
     font-family: var(--font-mono);
     font-weight: 700;
-    color: var(--color-east-side-500);
+    color: var(--color-east-side-300);
     font-weight: bold;
 }
 

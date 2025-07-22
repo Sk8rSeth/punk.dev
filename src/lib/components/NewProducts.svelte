@@ -30,15 +30,10 @@
 {#if product}
 <!-- Product content goes here -->
 <a href={product.link} aria-label="" class="new-product-container punkcard product-punkcard">
-          <div class="punkcard-content">
+          <div class="punkcard-content bg" style="background-image: radial-gradient(ellipse, rgba(24, 24, 27, .25) 20%, rgb(24, 24, 27) 80%), url({product.featuredImage}) ;">
             <div class="inner-container">
               <h2 class="section-title">//Featured Product</h2>
-              <div class="content-area">
-                <div class="featured-image-container">
-                  <img src={product.featuredImage} alt={product.title} class="featured-image">
-                </div>
-                <h2>{product.title}</h2>
-              </div>
+              <h3 class="product-title">{product.title}</h3>
             </div>
           </div>
       </a>
@@ -58,6 +53,23 @@
     
     .content-area {
       flex-grow: 1;
+    }
+
+    .punkcard-content.bg {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .punkcard-content.bg .inner-container {
+      height: 100%;
+      justify-content: space-between;
+      flex-direction: column;
+      display: flex;
+    }
+
+    .product-title {
+      text-align:center;
     }
 
     .product-punkcard {
