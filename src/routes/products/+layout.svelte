@@ -35,34 +35,40 @@
   </script>
   
     <!-- Product grid view -->
-    <div class="products-grid-container">
-      <h1 class="page-title">//Products</h1>
-      
-      <div class="products-grid">
-        {#each products as product}
-          <a href={`/products/${product.slug}`} class="product-card punkcard">
-            <div class="product-image-container">
-              {#if product.featuredImage}
-                <img src={product.featuredImage} alt={product.title} class="product-image" />
-              {:else}
-                <div class="placeholder-image"></div>
+<div class="products-grid-container">
+  <div class="main-content-container punkcard">
+      <div class="punkcard-content">
+          <div class="inner-container">
+            <h2 class="page-title">//Products</h2>
+    
+            <div class="products-grid">
+              {#each products as product}
+                <a href={`/products/${product.slug}`} class="product-card">
+                  <div class="product-image-container">
+                    {#if product.featuredImage}
+                      <img src={product.featuredImage} alt={product.title} class="product-image" />
+                    {:else}
+                      <div class="placeholder-image"></div>
+                    {/if}
+                  </div>
+                  <div class="product-title">{product.title}</div>
+                </a>
+              {/each}
+              
+              {#if products.length === 0}
+                <div class="no-products">
+                  <p>No products available yet.</p>
+                </div>
               {/if}
             </div>
-            <div class="product-title">{product.title}</div>
-          </a>
-        {/each}
-        
-        {#if products.length === 0}
-          <div class="no-products">
-            <p>No products available yet.</p>
           </div>
-        {/if}
       </div>
-    </div>
+  </div>
+</div>
   
   <style>
     /* Product Grid Styles */
-    .products-grid-container {
+    /* .products-grid-containers {
       grid-column: 1 / 25;
       grid-row: 2 / 4;
       background-color: var(--panel-color);
@@ -71,12 +77,12 @@
       padding: 2rem;
       overflow-y: auto;
       max-height: calc(100vh - var(--header-height) - var(--footer-height) - (var(--grid-gap) * 2));
-    }
-    
-    .page-title {
-      font-family: var(--font-mono);
-      margin-bottom: 2rem;
-      color: var(--color-east-side-800);
+    } */
+
+    .products-grid-container {
+      grid-column: 1 / 25;
+      grid-row: 2 / 4;
+      overflow-y: auto;
     }
     
     .products-grid {

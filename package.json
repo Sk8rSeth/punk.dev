@@ -5,12 +5,13 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
-	},
+		"dev:local-api": "VITE_GHOST_URL=http://localhost:2368 vite dev",
+		"dev:prod-api": "VITE_GHOST_URL=https://api.punk.dev vite dev",
+		"sync-db": "./scripts/sync-ghost-db.sh",
+		"ghost:start": "cd ~/Projects/sites/punk.dev-ghost-local/ghost-cms && ghost start",
+		"ghost:stop": "cd ~/Projects/sites/punk.dev-ghost-local/ghost-cms && ghost stop",
+		"dev:full": "npm run ghost:start && npm run dev"
+	  },
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/kit": "^2.24.0",

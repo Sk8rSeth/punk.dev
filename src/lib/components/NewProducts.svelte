@@ -1,16 +1,25 @@
 <script>
   import { getContentFromDirectory } from '$lib/utils/content.js';
-  
+  import { attachMouseMoveHandlers, attachAfterAsync } from '$lib/utils/mouseEffects.js';
 
   async function loadLatestProduct() {
     const products = await getContentFromDirectory('products');
     if (products.length === 0) return null;
     
     const latestProduct = products[0]; // First product (most recent due to sorting)
+    
     return {
       ...latestProduct,
       link: `/products/${latestProduct.slug}`
     };
+  }
+  async function reloadWithMouseEffects() {
+    latestProductPromise = attachAfterAsync(
+      loadLatestProduct(),
+      (result) => {
+        console.log('Product loaded and mouse effects attached:', result?.title);
+      }
+    );
   }
   
   let latestProductPromise = loadLatestProduct();
@@ -19,30 +28,37 @@
 
 
 {#await latestProductPromise}
-<div class="new-product-container punkcard">
-  <div class="punkcard-content">
-    <div class="inner-container">
-      <h2 class="section-title">//Featured Product</h2>
+  <div class="new-product-container punkcard">
+    <div class="punkcard-content">
+      <div class="inner-container">
+        <h2 class="section-title">//Featured Product</h2>
+      </div>
     </div>
   </div>
-</div>
 {:then product}
 {#if product}
 <!-- Product content goes here -->
-<a href={product.link} aria-label="" class="new-product-container punkcard product-punkcard">
-          <div class="punkcard-content bg" style="background-image: radial-gradient(ellipse, rgba(24, 24, 27, .25) 20%, rgb(24, 24, 27) 80%), url({product.featuredImage}) ;">
-            <div class="inner-container">
-              <h2 class="section-title">//Featured Product</h2>
-              <h3 class="product-title">{product.title}</h3>
-            </div>
-          </div>
-      </a>
-    {:else}
-      <div>No products available</div>
-    {/if}
-    {:catch error}
-      <div>Error loading product: {error.message}</div>
-    {/await}
+  <a href={product.link} aria-label="" class="new-product-container punkcard product-punkcard">
+    <div class="punkcard-content bg" style="background-image: radial-gradient(ellipse, rgba(24, 24, 27, .25) 20%, rgb(24, 24, 27) 80%), url({product.featuredImage}) ;">
+      <div class="inner-container">
+        <h2 class="section-title">//Featured Product</h2>
+        <h3 class="product-title">{product.title}</h3>
+      </div>
+    </div>
+  </a>
+{:else}
+  <div class="new-product-container punkcard">
+    <div class="punkcard-content">
+      <div class="inner-container">
+        <h2 class="section-title">//Featured Product</h2>
+        <div>No products available</div>
+      </div>
+    </div>
+  </div>
+{/if}
+{:catch error}
+  <div>Error loading product: {error.message}</div>
+{/await}
   
   <style>
     .new-product-container {
