@@ -57,6 +57,7 @@ code, .code {
 
 .logo, .punk {
     font-family: var(--font-logo);
+    font-size: 1.25rem;
 }
 
 p {
