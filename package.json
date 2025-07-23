@@ -8,6 +8,7 @@
 		"dev:local-api": "VITE_GHOST_URL=http://localhost:2368 vite dev",
 		"dev:prod-api": "VITE_GHOST_URL=https://api.punk.dev vite dev",
 		"sync-db": "./scripts/sync-ghost-db.sh",
+		"build": "vite build",
 		"ghost:start": "cd ~/Projects/sites/punk.dev-ghost-local/ghost-cms && ghost start",
 		"ghost:stop": "cd ~/Projects/sites/punk.dev-ghost-local/ghost-cms && ghost stop",
 		"dev:full": "npm run ghost:start && npm run dev"
