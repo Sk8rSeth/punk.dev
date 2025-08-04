@@ -25,6 +25,9 @@ jobs:
         
       - name: Build SvelteKit site
         run: npm run build
+        env:
+          VITE_GHOST_URL: https://cms.punk.dev
+          VITE_GHOST_CONTENT_KEY: ${{ secrets.GHOST_CONTENT_KEY }}
 
       - name: Copy index to 404
         run: cp build/index.html build/404.html
