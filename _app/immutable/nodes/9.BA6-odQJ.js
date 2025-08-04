@@ -1,0 +1,1 @@
+import"../chunks/NZTpNUN0.js";import"../chunks/B6whp2nb.js";import{o as r}from"../chunks/5Fg2fFCp.js";import{p as t,a}from"../chunks/CwgWmPI7.js";import{i as n}from"../chunks/CA5L7-P9.js";import{g as p}from"../chunks/BpRcpdDE.js";function g(i,o){t(o,!1),r(async()=>{branches=await p("branches")}),n(),a()}export{g as component};
