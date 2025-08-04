@@ -2,9 +2,9 @@ const isDevelopment = import.meta.env.DEV;
 
 export const ghostConfig = {
   // Always use production API for content
-  apiUrl: 'https://api.punk.dev',
+  apiUrl: 'https://cms.punk.dev',
   contentKey: import.meta.env.VITE_GHOST_CONTENT_KEY,
   
   // Local admin for development
-  adminUrl: isDevelopment ? 'http://localhost:2368' : 'https://api.punk.dev'
+  adminUrl: isDevelopment ? 'http://localhost:2368' : 'https://cms.punk.dev'
 };

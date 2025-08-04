@@ -1,5 +1,6 @@
 <script>
-  import { getContentFromDirectory } from '$lib/utils/content.js';
+  import { getContentFromDirectory } from '$lib/services/ghost.js';
+  import { attachMouseMoveHandlers, attachAfterAsync } from '$lib/utils/mouseEffects.js';
   
 
   async function loadLatestLog() {
@@ -9,7 +10,7 @@
     const latestLog = log[0]; // First Log (most recent due to sorting)
     return {
       ...latestLog,
-      link: `/log/${latestLog.slug}`
+      link: `/logs/${latestLog.slug}`
     };
   }
   
@@ -28,7 +29,7 @@
   {:then log}
   {#if log}
   <!-- log content goes here -->
-  <a href={log.link} aria-label="" class="latest-log-container punkcard log-punkcard">
+  <a href={log.link} aria-label="" class="latest-log-post-container punkcard log-punkcard">
             <div class="punkcard-content bg" style="background-image: radial-gradient(ellipse, rgba(24, 24, 27, .25) 20%, rgb(24, 24, 27) 80%), url({log.featuredImage}) ;">
               <div class="inner-container">
                 <h2 class="section-title">//Latest Log</h2>
@@ -55,6 +56,27 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+    }
+
+    a.latest-log-post-container {
+      display: block;
+    }
+
+    .punkcard-content.bg {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .punkcard-content.bg .inner-container {
+      height: 100%;
+      justify-content: space-between;
+      flex-direction: column;
+      display: flex;
+    }
+
+    .log-title {
+      text-align: center;
     }
     
     .content-area {

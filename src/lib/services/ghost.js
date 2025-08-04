@@ -1,7 +1,7 @@
 // src/lib/services/ghost.js
 import { browser } from '$app/environment';
 
-const GHOST_URL = import.meta.env.VITE_GHOST_URL || 'http://localhost:2368';
+const GHOST_URL = import.meta.env.VITE_GHOST_URL || 'https://cms.punk.dev';
 const GHOST_CONTENT_KEY = import.meta.env.VITE_GHOST_CONTENT_KEY;
 
 class GhostAPI {
@@ -21,9 +21,16 @@ class GhostAPI {
     });
 
     try {
-      const response = await fetch(url.toString());
+      const response = await fetch(url.toString(), {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+      });
+      
       if (!response.ok) {
-        throw new Error(`Ghost API error: ${response.status}`);
+        throw new Error(`Ghost API error: ${response.status} ${response.statusText}`);
       }
       return await response.json();
     } catch (error) {
@@ -98,7 +105,7 @@ export const ghostAPI = new GhostAPI();
 export async function getContentFromDirectory(directory) {
   try {
     switch (directory) {
-      case 'blog':
+      case 'log':
         const posts = await ghostAPI.getPosts();
         return posts.map(transformGhostPost);
       
@@ -134,7 +141,7 @@ export async function getContentBySlug(directory, slug) {
   }
 }
 
-// Transform Ghost data to match your existing structure
+// Transform Ghost data to match existing structure
 function transformGhostPost(post) {
   return {
     slug: post.slug,
@@ -169,10 +176,8 @@ function transformGhostPage(page) {
 
 // Create a Svelte component for HTML content
 function createHTMLComponent(html) {
-  return function HTMLContent() {
-    return {
-      render: () => ({ html })
-    };
+  return function HTMLContent($$payload) {
+    $$payload.out += `<div class="ghost-content">${html}</div>`;
   };
 }
 

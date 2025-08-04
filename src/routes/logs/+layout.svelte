@@ -1,7 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { getContentFromDirectory } from '$lib/utils/content.js';
-    
+    import { getContentFromDirectory } from '$lib/services/ghost.js';
     /** @type {import('./$types').LayoutData} */
     export let data;
     
@@ -23,6 +22,7 @@
       if (currentSlug) {
         selectedPost = logPosts.find(post => post.slug === currentSlug);
       }
+      
     });
     
     // Handle selecting a post from the archive
@@ -94,8 +94,8 @@
                     class:active={selectedPost && selectedPost.slug === post.slug} 
                     on:click={() => selectPost(post)}
                 >
-                    <div class="post-title">{post.title}</div>
-                    <div class="post-date">{new Date(post.date).toLocaleDateString()}</div>
+                    <div class="archives-post-title">{post.title}</div>
+                    <div class="archives-post-date">{new Date(post.date).toLocaleDateString()}</div>
                 </button>
                 {/each}
                 
@@ -112,8 +112,12 @@
       flex-grow: 1;
     }
 
+    .main-content-area {
+      grid-column: 1 / 20;
+    }
+
     .logs-archive {
-      grid-column: 17 / 25;
+      grid-column: 20 / 25;
       grid-row: 2 / 4;
       background-color: var(--panel-color);
       border-radius: var(--border-radius);
@@ -151,7 +155,7 @@
       text-align: left;
       padding: 1rem;
       background-color: transparent;
-      border: none;
+      border: 1px solid var(--color-east-side-990);
       border-radius: var(--border-radius);
       margin-bottom: 0.5rem;
       cursor: pointer;
@@ -166,14 +170,15 @@
       background-color: var(--color-east-side-200);
     }
     
-    .post-title {
+    .archives-post-title {
       font-weight: bold;
+      font-size: .9rem;
       color: var(--color-east-side-800);
       margin-bottom: 0.25rem;
     }
     
-    .post-date {
-      font-size: 0.85rem;
+    .archives-post-date {
+      font-size: 0.7rem;
       color: var(--color-east-side-600);
     }
     
@@ -214,7 +219,6 @@
       gap: 1rem;
       margin-bottom: 1.5rem;
       color: var(--color-east-side-600);
-      font-size: 0.9rem;
     }
     
     .tags {
@@ -223,10 +227,10 @@
     }
     
     .tag {
-      background-color: var(--color-east-side-200);
+      background-color: var(--color-east-side-990);
       padding: 0.25rem 0.5rem;
       border-radius: 3px;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
     
     .featured-image {

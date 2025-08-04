@@ -1,5 +1,5 @@
 <script>
-  import { getContentFromDirectory } from '$lib/utils/content.js';
+  import { getContentFromDirectory } from '$lib/services/ghost.js';
   import { attachMouseMoveHandlers, attachAfterAsync } from '$lib/utils/mouseEffects.js';
 
   async function loadLatestProduct() {
