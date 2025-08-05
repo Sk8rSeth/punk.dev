@@ -12,7 +12,7 @@ const config = {
       layout: {
         log: 'src/lib/layouts/LogPost.svelte',
         product: 'src/lib/layouts/Product.svelte',
-        branch: 'src/lib/layouts/Branch.svelte'
+        code: 'src/lib/layouts/Code.svelte'
       }
     })
   ],

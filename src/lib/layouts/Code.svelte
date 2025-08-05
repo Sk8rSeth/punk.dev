@@ -1,10 +1,10 @@
-<!-- src/lib/layouts/Branch.svelte -->
+<!-- src/lib/layouts/code.svelte -->
 <script>
     export let title;
     export let featuredImage;
   </script>
   
-  <div class="branch-page">
+  <div class="code-page">
     <h1>{title}</h1>
     
     {#if featuredImage}

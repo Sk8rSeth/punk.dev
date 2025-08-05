@@ -39,7 +39,7 @@
   <div class="main-content-container punkcard">
       <div class="punkcard-content">
           <div class="inner-container">
-            <h2 class="page-title">//Products</h2>
+            <h2 class="section-title">//Products</h2>
     
             <div class="products-grid">
               {#each products as product}

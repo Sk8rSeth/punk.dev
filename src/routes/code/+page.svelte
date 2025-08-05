@@ -5,7 +5,7 @@
     let blogPosts = [];
     
     onMount(async () => {
-      branches = await getContentFromDirectory('branches');
+      repos = await getContentFromDirectory('code');
     });
   </script>
   

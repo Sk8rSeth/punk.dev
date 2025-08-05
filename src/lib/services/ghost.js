@@ -61,7 +61,7 @@ class GhostAPI {
     return response.posts?.[0] || null;
   }
 
-  // Get all pages (for products, branches, etc.)
+  // Get all pages (for products, repos, etc.)
   async getPages(params = {}) {
     const defaultParams = {
       include: 'tags',
@@ -83,7 +83,7 @@ class GhostAPI {
     return response.pages?.[0] || null;
   }
 
-  // Get pages by tag (for products, branches)
+  // Get pages by tag (for products, repos)
   async getPagesByTag(tag, params = {}) {
     const allPages = await this.getPages({
       filter: `tag:${tag}`,
@@ -112,10 +112,6 @@ export async function getContentFromDirectory(directory) {
       case 'products':
         const products = await ghostAPI.getPagesByTag('product');
         return products.map(transformGhostPage);
-      
-      case 'branches':
-        const branches = await ghostAPI.getPagesByTag('branch');
-        return branches.map(transformGhostPage);
       
       default:
         return [];

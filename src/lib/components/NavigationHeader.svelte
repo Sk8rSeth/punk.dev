@@ -2,10 +2,10 @@
     import HamburgerMenu from './HamburgerMenu.svelte';
     
     const navItems = [
-      { id: 'products', title: '//Products', href: '/products' },
-      { id: 'logs', title: '//Logs', href: '/logs' },
-      { id: 'branches', title: '//Branches', href: '/branches' },
-      { id: 'about', title: '//About', href: '/about' }
+      { id: 'products', title: '// Products', href: '/products' },
+      { id: 'logs', title: '// Logs', href: '/logs' },
+      { id: 'code', title: '// Code', href: '/code' },
+      { id: 'about', title: '// About', href: '/about' }
     ];
   </script>
   
