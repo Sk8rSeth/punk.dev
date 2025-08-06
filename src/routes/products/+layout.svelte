@@ -40,7 +40,7 @@
       <div class="punkcard-content">
           <div class="inner-container">
             <h2 class="section-title">//Products</h2>
-    
+            <p class="">information and documentation about the various products <span class="punk">.punk Labs</span> makes.</p>
             <div class="products-grid">
               {#each products as product}
                 <a href={`/products/${product.slug}`} class="product-card">
@@ -65,6 +65,21 @@
       </div>
   </div>
 </div>
+
+  <a href=# aria-label="" class="new-product-area punkcard product-punkcard">
+    <div class="punkcard-content bg" style="background-image: radial-gradient(ellipse, rgba(24, 24, 27, .25) 20%, rgb(24, 24, 27) 80%), url() ;">
+      <div class="inner-container">
+        <h2 class="section-title">//Pathlight.Maps</h2>
+      </div>
+    </div>
+  </a>
+  <a href=# aria-label="" class="new-blog-area punkcard product-punkcard">
+    <div class="punkcard-content bg" style="background-image: radial-gradient(ellipse, rgba(24, 24, 27, .25) 20%, rgb(24, 24, 27) 80%), url() ;">
+      <div class="inner-container">
+        <h2 class="section-title">//darlings.rip</h2>
+      </div>
+    </div>
+  </a>
   
   <style>
     /* Product Grid Styles */
@@ -80,7 +95,7 @@
     } */
 
     .products-grid-container {
-      grid-column: 1 / 25;
+      grid-column: 1 / 17;
       grid-row: 2 / 4;
       overflow-y: auto;
     }
