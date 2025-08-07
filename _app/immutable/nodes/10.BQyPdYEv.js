@@ -1,0 +1,1 @@
+import"../chunks/NZTpNUN0.js";import"../chunks/YQ3Gu5IN.js";import{o as t}from"../chunks/DOG8XHmb.js";import{p as a,a as r}from"../chunks/UeI5gVJZ.js";import{i as p}from"../chunks/DfKZw6Tw.js";import{g as i}from"../chunks/D2LeYyvg.js";function l(m,o){a(o,!1),t(async()=>{logPosts=await i("log")}),console.log("main +page"),p(),r()}export{l as component};

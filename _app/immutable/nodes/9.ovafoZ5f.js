@@ -1,0 +1,1 @@
+import"../chunks/NZTpNUN0.js";import"../chunks/YQ3Gu5IN.js";import{o as r}from"../chunks/DOG8XHmb.js";import{p as t,a as p}from"../chunks/UeI5gVJZ.js";import{i as a}from"../chunks/DfKZw6Tw.js";import{g as i}from"../chunks/C-3xcsos.js";function u(m,o){t(o,!1),r(async()=>{repos=await i("code")}),a(),p()}export{u as component};
