@@ -1,40 +1,76 @@
 <script>
-    import { onMount } from 'svelte';
-    import { getContentFromDirectory } from '$lib/services/ghost.js';
-    /** @type {import('./$types').LayoutData} */
-    export let data;
+  import { onMount } from 'svelte';
+  import { getContentFromDirectory } from '$lib/services/ghost.js';
+
+import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib/utils/imageEnlargement.js';
+  import ImageModal from '$lib/components/ImageModal.svelte';
+
+  /** @type {import('./$types').LayoutData} */
+  export let data;
+  
+  let logPosts = [];
+  let selectedPost = null;
+  let currentSlug = '';
+
+  // Image modal state
+  let showImageModal = false;
+  let modalImageSrc = '';
+  let modalImageAlt = '';
+  
+  // Get current slug from the URL
+  onMount(async () => {
+    // Get the current path and extract slug
+    const path = window.location.pathname;
+    const match = path.match(/\/logs\/([^\/]+)/);
+    currentSlug = match ? match[1] : '';
     
-    let logPosts = [];
-    let selectedPost = null;
-    let currentSlug = '';
+    // Fetch all blog posts for the archive
+    logPosts = await getContentFromDirectory('log');
     
-    // Get current slug from the URL
-    onMount(async () => {
-      // Get the current path and extract slug
-      const path = window.location.pathname;
-      const match = path.match(/\/logs\/([^\/]+)/);
-      currentSlug = match ? match[1] : '';
-      
-      // Fetch all blog posts for the archive
-      logPosts = await getContentFromDirectory('log');
-      
-      // If we're on a post page, set the selected post
-      if (currentSlug) {
-        selectedPost = logPosts.find(post => post.slug === currentSlug);
-      }
-      
-    });
-    
-    // Handle selecting a post from the archive
-    function selectPost(post) {
-      selectedPost = post;
-      // Update URL without full page navigation
-      window.history.pushState(
-        {}, 
-        post.title, 
-        `/logs/${post.slug}`
-      );
+    // If we're on a post page, set the selected post
+    if (currentSlug) {
+      selectedPost = logPosts.find(post => post.slug === currentSlug);
+      if (selectedPost.content) {
+        selectedPost.content = selectedPost.content.replace(
+          /<img([^>]*?)src="([^"]*?)"([^>]*?)>/g, 
+          '<img$1src="$2"$3 class="enlarge" data-enlarge-src="$2">');
+        }
     }
+    
+    // Initialize image enlargement
+    initializeImageEnlargement();
+    
+    // Listen for image modal events
+    document.addEventListener('showImageModal', handleShowImageModal);
+    document.addEventListener('closeImageModal', handleCloseImageModal);
+    
+    setTimeout(attachImageEnlargementHandlers, 100);
+  });
+    
+  // Handle selecting a post from the archive
+  function selectPost(post) {
+    selectedPost = post;
+    
+    // Update URL without full page navigation
+    window.history.pushState(
+      {}, 
+      post.title, 
+      `/logs/${post.slug}`
+    );
+  }
+
+  function handleShowImageModal(event) {
+    const { src, alt } = event.detail;
+    modalImageSrc = src;
+    modalImageAlt = alt;
+    showImageModal = true;
+  }
+  
+  function handleCloseImageModal() {
+    showImageModal = false;
+    modalImageSrc = '';
+    modalImageAlt = '';
+  }
     
   </script>
   
@@ -61,15 +97,11 @@
                     </div>
                     
                     {#if selectedPost.featuredImage}
-                        <img src={selectedPost.featuredImage} alt={selectedPost.title} class="featured-image" />
+                        <img src={selectedPost.featuredImage} alt={selectedPost.title} class="featured-image enlarge" />
                     {/if}
                     
-                    {#if selectedPost.excerpt}
-                        <div class="excerpt">{selectedPost.excerpt}</div>
-                    {/if}
-                    
-                    {#if selectedPost.Content}
-                        <svelte:component this={selectedPost.Content} />
+                    {#if selectedPost.content}
+                        {@html selectedPost.content}
                     {/if}
                     </div>
                 </div>
@@ -106,6 +138,13 @@
         </div>
     </div>
 </div>
+    <!-- Image Modal -->
+    <ImageModal 
+      bind:show={showImageModal}
+      src={modalImageSrc}
+      alt={modalImageAlt}
+      on:close={handleCloseImageModal}
+    />
   
   <style>
     .content-area {
@@ -234,8 +273,7 @@
     }
     
     .featured-image {
-      width: 100%;
-      max-height: 400px;
+      width: 50%;
       object-fit: cover;
       border-radius: var(--border-radius);
       margin-bottom: 1.5rem;

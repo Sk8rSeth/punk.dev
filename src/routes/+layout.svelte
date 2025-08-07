@@ -8,11 +8,18 @@ import { afterNavigate } from '$app/navigation';
 import { initializeMouseEffects, attachMouseMoveHandlers } from '$lib/utils/mouseEffects.js';
 import { fly } from 'svelte/transition';
 import { browser } from '$app/environment';
+import ImageModal from '$lib/components/ImageModal.svelte';
+import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib/utils/imageEnlargement.js';
 
   /** @type {{children: import('svelte').Snippet}} */
   let { children, data } = $props();
 
   let mouseEffectsObserver;
+
+  // Image modal state
+  let showImageModal = false;
+  let modalImageSrc = '';
+  let modalImageAlt = '';
 
   onMount(() => {
     if (browser) {
@@ -21,12 +28,21 @@ import { browser } from '$app/environment';
         autoDetect: true,
         debounceTime: 50
       });
+
+      // Initialize image enlargement
+      initializeImageEnlargement();
+      
+      // Listen for image modal events
+      document.addEventListener('showImageModal', handleShowImageModal);
+      document.addEventListener('closeImageModal', handleCloseImageModal);
       
       return () => {
         // Cleanup on component unmount
         if (mouseEffectsObserver) {
           mouseEffectsObserver.disconnect();
         }
+        document.removeEventListener('showImageModal', handleShowImageModal);
+        document.removeEventListener('closeImageModal', handleCloseImageModal);
       };
     }
   });
@@ -35,8 +51,22 @@ import { browser } from '$app/environment';
     if (browser) {
       // Re-attach handlers after navigation
       attachMouseMoveHandlers();
+      attachImageEnlargementHandlers();
     }
   });
+    
+  function handleShowImageModal(event) {
+    const { src, alt } = event.detail;
+    modalImageSrc = src;
+    modalImageAlt = alt;
+    showImageModal = true;
+  }
+  
+  function handleCloseImageModal() {
+    showImageModal = false;
+    modalImageSrc = '';
+    modalImageAlt = '';
+  }
 </script>
 
 <div class="grid-container">
@@ -59,7 +89,15 @@ import { browser } from '$app/environment';
         <Footer />
     </div>
     <div class="legal">&copy;2025 .punk Labs. created with love and hate by <a href="https://sethdoes.dev">RedBeard</a></div>
-</div>
+    
+  </div>
+  <!-- Image Modal -->
+  <ImageModal 
+    bind:show={showImageModal}
+    src={modalImageSrc}
+    alt={modalImageAlt}
+    on:close={handleCloseImageModal}
+  />
 
 <style>
 

@@ -17,19 +17,19 @@
   } 
 
 :root {
-    /* Color scheme */
-    --color-east-side-50: #18181b;
-    --color-east-side-100: #f4f0f7;
-    --color-east-side-200: #ebe3f1;
-    --color-east-side-300: #dbcce6;
-    --color-east-side-400: #c3abd5;
-    --color-east-side-500: #a886c0;
-    --color-east-side-600: #956fae;
-    --color-east-side-700: #7e5a96;
-    --color-east-side-800: #6a4d7c;
-    --color-east-side-900: #573f64;
-    --color-east-side-950: #392546;
-    --color-east-side-990: #0e0e11;
+  /* Color scheme */
+  --color-east-side-50: #18181b;
+  --color-east-side-100: #f4f0f7;
+  --color-east-side-200: #ebe3f1;
+  --color-east-side-300: #dbcce6;
+  --color-east-side-400: #c3abd5;
+  --color-east-side-500: #a886c0;
+  --color-east-side-600: #956fae;
+  --color-east-side-700: #7e5a96;
+  --color-east-side-800: #6a4d7c;
+  --color-east-side-900: #573f64;
+  --color-east-side-950: #392546;
+  --color-east-side-990: #0e0e11;
   
   /* Font families */
   --font-main: 'Space Grotesk', sans-serif;
@@ -56,8 +56,8 @@ code, .code {
 }
 
 .logo, .punk {
-    font-family: var(--font-logo);
-    font-size: 1.25rem;
+  font-family: var(--font-logo);
+  font-size: 1.25rem;
 }
 
 p {
@@ -102,7 +102,7 @@ input {
 }
 
 input::placeholder {
-    color: var(--color-east-side-400);
+  color: var(--color-east-side-400);
 }
 
 input:focus {
@@ -113,12 +113,45 @@ input:focus {
 
 /* Section titles styling */
 .section-title {
-    font-family: var(--font-mono);
-    font-weight: 700;
-    color: var(--color-east-side-300);
-    font-weight: bold;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-east-side-300);
+  font-weight: bold;
 }
 
 .content-center {
-    align-content: center;
+  align-content: center;
+}
+
+img.enlarge {
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+img.enlarge:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/* Add a subtle indicator */
+img.enlarge::after {
+  content: '🔍';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+img.enlarge:hover::after {
+  opacity: 1;
 }
