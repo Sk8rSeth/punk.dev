@@ -57,6 +57,11 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
       post.title, 
       `/logs/${post.slug}`
     );
+    initializeImageEnlargement();
+        document.addEventListener('showImageModal', handleShowImageModal);
+    document.addEventListener('closeImageModal', handleCloseImageModal);
+    
+    setTimeout(attachImageEnlargementHandlers, 100);
   }
 
   function handleShowImageModal(event) {

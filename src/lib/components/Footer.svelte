@@ -1,5 +1,5 @@
 <div class="footer-container">
-    <a href="#" class="store-section punkcard">
+    <a href="https://shop.punk.dev/" class="store-section punkcard">
         <div class="punkcard-content content-center">
             <div class="section-title">//Store —> (coming soon)</div>
         </div>

@@ -43,6 +43,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  font-size: 13px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -154,4 +155,12 @@ img.enlarge::after {
 
 img.enlarge:hover::after {
   opacity: 1;
+}
+
+.logs-content-container code {
+  border-top: 2px solid var(--color-east-side-500);
+  border-radius: 5px;
+  background-color: var(--color-east-side-990);
+  padding: 1rem;
+  margin: 1rem;
 }
