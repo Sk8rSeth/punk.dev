@@ -197,10 +197,10 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
       display: block;
       width: 100%;
       text-align: left;
-      padding: 1rem;
+      padding: .5rem 1rem;
       background-color: transparent;
       border: 1px solid var(--color-east-side-990);
-      border-radius: var(--border-radius);
+      border-radius: 1rem;
       margin-bottom: 0.5rem;
       cursor: pointer;
       transition: background-color 0.2s ease;
@@ -213,11 +213,17 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
     .archive-item.active {
       background-color: var(--color-east-side-200);
     }
+
+    .archive-item:hover .archives-post-title,
+    .archive-item.active .archives-post-title,
+    .archive-item.active .archives-post-date {
+      color: var(--color-east-side-950);
+    }
     
     .archives-post-title {
       font-weight: bold;
       font-size: .9rem;
-      color: var(--color-east-side-800);
+      color: var(--color-east-side-400);
       margin-bottom: 0.25rem;
     }
     
@@ -244,17 +250,22 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
     
     .logs-intro h1 {
       font-family: var(--font-mono);
-      color: var(--color-east-side-800);
+      color: var(--color-east-side-500);
       margin-bottom: 1rem;
     }
     
     .logs-intro p {
       color: var(--color-east-side-600);
     }
+
+    .post-content {
+      padding: 1rem;
+      padding-top: 0;
+    }
     
     .post-content h1 {
       font-family: var(--font-mono);
-      color: var(--color-east-side-800);
+      color: var(--color-east-side-500);
       margin-bottom: 1rem;
     }
     
