@@ -106,7 +106,7 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
     grid-column: 1 / 25;
     font-size: .75rem;
     text-align: center;
-    gap: 0;
+    color: var(--color-font-dark);
 }
 
 .legal a {
