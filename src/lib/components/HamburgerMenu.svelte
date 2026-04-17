@@ -98,7 +98,7 @@
       .bar {
         width: 100%;
         height: 3px;
-        background-color: var(--color-east-side-700);
+        background-color: var(--color-font-excerpt);
         transition: all 0.3s ease;
       }
       
@@ -120,7 +120,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--color-east-side-950);
+        background-color: var(--color-overlay);
         z-index: 100;
         transition: opacity 0.3s ease;
         pointer-events: none;
@@ -137,7 +137,7 @@
         height: 100%;
         width: 70%;
         max-width: 300px;
-        background-color: var(--color-east-side-50);
+        background-color: var(--color-panel);
         z-index: 105;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
         padding: 1rem 0 0;
@@ -149,8 +149,8 @@
       .menu-header {
         padding: 1rem;
         font-weight: bold;
-        color: var(--color-east-side-800);
-        border-bottom: 1px solid var(--color-east-side-200);
+        color: var(--color-font-link-dark);
+        border-bottom: 1px solid var(--color-element-active);
         margin-bottom: 1rem;
       }
       
@@ -175,8 +175,8 @@
       }
       
       .menu-item:hover {
-        background-color: var(--color-east-side-200);
-        color: var(--color-east-side-800);
+        background-color: var(--color-element-active);
+        color: var(--color-font-link-dark);
         transform: translateX(2px);
       }
 

@@ -178,13 +178,13 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
     
     .archive-header {
       padding: 1.5rem;
-      border-bottom: 1px solid var(--color-east-side-500);
+      border-bottom: 1px solid var(--color-font-primary);
     }
     
     .archive-header h2 {
       font-family: var(--font-mono);
       margin: 0;
-      color: var(--color-east-side-800);
+      color: var(--color-font-link-dark);
     }
     
     .archive-list {
@@ -199,7 +199,7 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
       text-align: left;
       padding: .5rem 1rem;
       background-color: transparent;
-      border: 1px solid var(--color-east-side-990);
+      border: 1px solid var(--color-darkest);
       border-radius: 1rem;
       margin-bottom: 0.5rem;
       cursor: pointer;
@@ -207,34 +207,34 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
     }
     
     .archive-item:hover {
-      background-color: var(--color-east-side-100);
+      background-color: var(--color-element-hover);
     }
     
     .archive-item.active {
-      background-color: var(--color-east-side-200);
+      background-color: var(--color-element-active);
     }
 
     .archive-item:hover .archives-post-title,
     .archive-item.active .archives-post-title,
     .archive-item.active .archives-post-date {
-      color: var(--color-east-side-950);
+      color: var(--color-overlay);
     }
     
     .archives-post-title {
       font-weight: bold;
       font-size: .9rem;
-      color: var(--color-east-side-400);
+      color: var(--color-font-hover);
       margin-bottom: 0.25rem;
     }
     
     .archives-post-date {
       font-size: 0.7rem;
-      color: var(--color-east-side-600);
+      color: var(--color-font-dark);
     }
     
     .no-posts {
       padding: 1.5rem;
-      color: var(--color-east-side-600);
+      color: var(--color-font-dark);
       font-style: italic;
       text-align: center;
     }
@@ -250,12 +250,12 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
     
     .logs-intro h1 {
       font-family: var(--font-mono);
-      color: var(--color-east-side-500);
+      color: var(--color-font-primary);
       margin-bottom: 1rem;
     }
     
     .logs-intro p {
-      color: var(--color-east-side-600);
+      color: var(--color-font-dark);
     }
 
     .post-content {
@@ -265,7 +265,7 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
     
     .post-content h1 {
       font-family: var(--font-mono);
-      color: var(--color-east-side-500);
+      color: var(--color-font-primary);
       margin-bottom: 1rem;
     }
     
@@ -273,7 +273,7 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
       display: flex;
       gap: 1rem;
       margin-bottom: 1.5rem;
-      color: var(--color-east-side-600);
+      color: var(--color-font-dark);
     }
     
     .tags {
@@ -282,7 +282,7 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
     }
     
     .tag {
-      background-color: var(--color-east-side-990);
+      background-color: var(--color-darkest);
       padding: 0.25rem 0.5rem;
       border-radius: 3px;
       font-size: 0.7rem;
@@ -297,15 +297,15 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
     
     .excerpt {
       font-style: italic;
-      border-left: 3px solid var(--color-east-side-300);
+      border-left: 3px solid var(--color-body);
       padding-left: 1rem;
       margin-bottom: 1.5rem;
-      color: var(--color-east-side-700);
+      color: var(--color-font-excerpt);
     }
     
     /* Ensure content styling is clear */
     .post-content :global(h2) {
-      color: var(--color-east-side-700);
+      color: var(--color-font-excerpt);
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
@@ -316,8 +316,12 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
     }
     
     .post-content :global(a) {
-      color: var(--color-east-side-600);
+      color: var(--color-link);
       text-decoration: underline;
+    }
+
+    .post-content :global(a):hover {
+      color: var(--color-link-hover);
     }
     
     .post-content :global(ul), .post-content :global(ol) {

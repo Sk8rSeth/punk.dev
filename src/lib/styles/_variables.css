@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'outline.punk';
+  src: url('$lib/fonts/outline.punk.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+} 
+
+@font-face {
+  font-family: 'spleen';
+  src: url('$lib/fonts/spleen-16x32.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+} 
+
+:root {
+  /* Color scheme */
+    --color-body: #dbcce6; /* was east-side-500 */
+    --color-font-primary: #c793ec; /* was east-side-300 */
+    --color-font-hover: #c3abd5; /* was east-side-400 */
+    --color-link: #c295e4;
+    --color-link-hover: #9355c2;
+    --color-font-link-dark: #6a4d7c; /* was east-side-800 */
+    --color-background: #2f2b31;
+    --color-panel: #18181b; /* was east-side-50 */
+    --color-panel-hover: #37373c;
+    --color-panel-selection: rgba(219, 204, 230, .5);
+    --color-accent: #956fae; /* was east-side-600 */
+    --color-element-hover: #f4f0f7; /* was east-side-100 */
+    --color-element-active: #ebe3f1; /* was east-side-200 */
+    --color-font-dark: #956fae; /* was east-side-600 */
+    --color-font-excerpt: #7e5a96; /* was east-side-700 */
+    --color-overlay: #392546; /* was east-side-950 */
+    --color-darkest: #0e0e11; /* was east-side-990 */
+
+  
+  /* Font families */
+  --font-main: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-code: 'spleen', monospace;
+  --font-logo: 'outline.punk', sans-serif;
+}

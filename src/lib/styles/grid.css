@@ -1,32 +1,12 @@
-/* Grid layout styles with color scheme and rounded corners */
+@import './_variables.css';
+
+/* Grid layout styles and rounded corners */
 :root {
-    --header-height: 7rem;
-    --footer-height: 6rem;
-    --grid-gap: 0.1rem;
-    --border-radius: 1.5rem;
-    
-    /* Color scheme */
-    --color-east-side-50: #18181b;
-    --color-east-side-55: #37373c;
-    --color-east-side-100: #f4f0f7;
-    --color-east-side-200: #ebe3f1;
-    --color-east-side-300: #dbcce6;
-    --color-east-side-400: #c3abd5;
-    --color-east-side-500: #a886c0;
-    --color-east-side-600: #956fae;
-    --color-east-side-700: #7e5a96;
-    --color-east-side-800: #6a4d7c;
-    --color-east-side-900: #a56dc4;
-    --color-east-side-950: #392546;
-    --color-east-side-990: #2f2b31;
-    
-    /* Background and text colors */
-    --background-color: var(--color-east-side-990);
-    --panel-color: var(--color-east-side-50);
-    --text-color: var(--color-east-side-400);
-    --accent-color: var(--color-east-side-600);
-    --panel-color-hover: var(--color-east-side-55);
-  }
+  --header-height: 7rem;
+  --footer-height: 6rem;
+  --grid-gap: 0.1rem;
+  --border-radius: 1.5rem;
+}
   
 html, body {
     height: 100%;
@@ -34,13 +14,11 @@ html, body {
     padding: 0;
     padding-left: .1rem;
     overflow: hidden;
-    background-color: var(--background-color);
-    color: var(--text-color);
   }
 
   ::selection {
-    background-color: rgba(219, 204, 230, .5);
-    color: var(--color-east-side-50);
+    background-color: var(--color-panel-selection);
+    color: var(--color-panel);
   }
   
   .grid-container {
@@ -61,7 +39,7 @@ html, body {
   .new-product-area,
   .new-blog-area,
   .side-content-container > div {
-    /* background-color: var(--panel-color); */
+    /* background-color: var(--color-panel); */
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -123,7 +101,7 @@ html, body {
 }
 
 .punkcard > .punkcard-content {
-    background-color: var(--panel-color);
+    background-color: var(--color-panel);
     border-radius: inherit;
     position: absolute;
     top: 0px;
@@ -142,7 +120,7 @@ html, body {
 /* desktop only mouse effects */
 @media (min-width: 769px) {
     a.punkcard:hover {
-        background-color: var(--panel-color-hover);
+        background-color: var(--color-panel-hover);
     }
 
     .punkcard > .punkcard-content:hover::before, .punkcard:hover::after {

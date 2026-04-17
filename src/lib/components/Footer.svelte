@@ -42,7 +42,7 @@
     .store-section:hover {
       background-color: rgb(244, 240, 247, .2);
       transform: translateY(-2px);
-      color: var(--color-east-side-500);
+      color: var(--color-font-primary);
     }
     
     .newsletter-section {
@@ -66,7 +66,7 @@
     .email-input {
       flex-grow: 1;
       margin-right: 0.75rem;
-      color: var(--color-east-side-500);
+      color: var(--color-font-primary);
       border-radius: .75rem;
     }
 

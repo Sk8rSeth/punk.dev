@@ -111,7 +111,7 @@ import { initializeImageEnlargement, attachImageEnlargementHandlers } from '$lib
 
 .legal a {
     text-decoration: none;
-    color: var(--color-east-side-800);
+    color: var(--color-font-link-dark);
 }
 
 @media (max-width: 768px) {

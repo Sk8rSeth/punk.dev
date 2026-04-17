@@ -178,7 +178,7 @@
   .close-icon {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--color-east-side-700, #333);
+    color: var(--color-font-excerpt, #333);
   }
   
   .image-modal-content {
@@ -236,11 +236,11 @@
   .error-close-btn {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background: var(--color-east-side-200, #f0f0f0);
+    background: var(--color-element-active, #f0f0f0);
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    color: var(--color-east-side-700, #333);
+    color: var(--color-font-excerpt, #333);
   }
   
   .image-modal-caption {
@@ -254,7 +254,7 @@
   
   .image-modal-caption p {
     margin: 0;
-    color: var(--color-east-side-700, #333);
+    color: var(--color-font-excerpt, #333);
     font-size: 0.9rem;
     line-height: 1.4;
   }

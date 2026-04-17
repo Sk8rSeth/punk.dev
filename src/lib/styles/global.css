@@ -2,54 +2,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
-@font-face {
-    font-family: 'outline.punk';
-    src: url('$lib/fonts/outline.punk.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-  } 
 
-  @font-face {
-    font-family: 'spleen';
-    src: url('$lib/fonts/spleen-16x32.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-  } 
-
-:root {
-  /* Color scheme */
-  --color-east-side-50: #18181b;
-  --color-east-side-100: #f4f0f7;
-  --color-east-side-200: #ebe3f1;
-  --color-east-side-300: #dbcce6;
-  --color-east-side-400: #c3abd5;
-  --color-east-side-500: #a886c0;
-  --color-east-side-600: #956fae;
-  --color-east-side-700: #7e5a96;
-  --color-east-side-800: #6a4d7c;
-  --color-east-side-900: #573f64;
-  --color-east-side-950: #392546;
-  --color-east-side-990: #0e0e11;
-  
-  /* Font families */
-  --font-main: 'Space Grotesk', sans-serif;
-  --font-mono: 'Space Mono', monospace;
-  --font-code: 'spleen', monospace;
-  --font-logo: 'outline.punk', sans-serif;
-}
+@import './_variables.css';
 
 html, body {
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
   font-size: 14px;
+  background-color: var(--color-background);
+  color: var(--color-body);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-main);
   font-weight: 700;
-  color: var(--color-east-side-400);
+  color: var(--color-font-hover);
 }
 
 code, .code {
@@ -58,19 +26,15 @@ code, .code {
 
 .logo, .punk {
   font-family: var(--font-logo);
-  font-size: 1.25rem;
-}
-
-p {
-  color: var(--color-east-side-500);
+  font-size: 1.5rem;
 }
 
 a {
-  color: var(--color-east-side-400);
+  color: var(--color-link);
 }
 
 a:hover {
-  color: var(--color-east-side-900);
+  color: var(--color-link-hover);
 }
 
 .mono {
@@ -82,7 +46,7 @@ input, button {
 }
 
 button {
-  background-color: var(--color-east-side-600);
+  background-color: var(--color-font-dark);
   color: white;
   border: none;
   border-radius: 0.25rem;
@@ -92,31 +56,31 @@ button {
 }
 
 button:hover {
-  background-color: var(--color-east-side-700);
+  background-color: var(--color-font-excerpt);
 }
 
 input {
-  border: 1px solid var(--color-east-side-300);
+  border: 1px solid var(--color-body);
   border-radius: 0.25rem;
   padding: 0.5rem;
-  background-color: var(--color-east-side-50);
+  background-color: var(--color-panel);
 }
 
 input::placeholder {
-  color: var(--color-east-side-400);
+  color: var(--color-font-hover);
 }
 
 input:focus {
   outline: none;
-  border-color: var(--color-east-side-500);
-  box-shadow: 0 0 0 2px var(--color-east-side-200);
+  border-color: var(--color-font-primary);
+  box-shadow: 0 0 0 2px var(--color-element-active);
 }
 
 /* Section titles styling */
 .section-title {
   font-family: var(--font-mono);
   font-weight: 700;
-  color: var(--color-east-side-300);
+  color: var(--color-font-primary);
   font-weight: bold;
 }
 
@@ -158,9 +122,9 @@ img.enlarge:hover::after {
 }
 
 .logs-content-container code {
-  border-top: 2px solid var(--color-east-side-500);
+  border-top: 2px solid var(--color-body);
   border-radius: 5px;
-  background-color: var(--color-east-side-990);
+  background-color: var(--color-darkest);
   padding: 1rem;
   margin: 1rem;
 }

@@ -130,13 +130,13 @@
     
     .archive-header {
       padding: 1.5rem;
-      border-bottom: 1px solid var(--color-east-side-500);
+      border-bottom: 1px solid var(--color-font-primary);
     }
     
     .archive-header h2 {
       font-family: var(--font-mono);
       margin: 0;
-      color: var(--color-east-side-800);
+      color: var(--color-font-link-dark);
     }
     
     .archive-list {
@@ -159,27 +159,27 @@
     }
     
     .archive-item:hover {
-      background-color: var(--color-east-side-100);
+      background-color: var(--color-element-hover);
     }
     
     .archive-item.active {
-      background-color: var(--color-east-side-200);
+      background-color: var(--color-element-active);
     }
     
     .post-title {
       font-weight: bold;
-      color: var(--color-east-side-800);
+      color: var(--color-font-link-dark);
       margin-bottom: 0.25rem;
     }
     
     .post-date {
       font-size: 0.85rem;
-      color: var(--color-east-side-600);
+      color: var(--color-font-dark);
     }
     
     .no-posts {
       padding: 1.5rem;
-      color: var(--color-east-side-600);
+      color: var(--color-font-dark);
       font-style: italic;
       text-align: center;
     }
@@ -195,17 +195,17 @@
     
     .logs-intro h1 {
       font-family: var(--font-mono);
-      color: var(--color-east-side-800);
+      color: var(--color-font-link-dark);
       margin-bottom: 1rem;
     }
     
     .logs-intro p {
-      color: var(--color-east-side-600);
+      color: var(--color-font-dark);
     }
     
     .post-content h1 {
       font-family: var(--font-mono);
-      color: var(--color-east-side-800);
+      color: var(--color-font-link-dark);
       margin-bottom: 1rem;
     }
     
@@ -213,7 +213,7 @@
       display: flex;
       gap: 1rem;
       margin-bottom: 1.5rem;
-      color: var(--color-east-side-600);
+      color: var(--color-font-dark);
       font-size: 0.9rem;
     }
     
@@ -223,7 +223,7 @@
     }
     
     .tag {
-      background-color: var(--color-east-side-200);
+      background-color: var(--color-element-active);
       padding: 0.25rem 0.5rem;
       border-radius: 3px;
       font-size: 0.8rem;
@@ -239,15 +239,15 @@
     
     .excerpt {
       font-style: italic;
-      border-left: 3px solid var(--color-east-side-300);
+      border-left: 3px solid var(--color-body);
       padding-left: 1rem;
       margin-bottom: 1.5rem;
-      color: var(--color-east-side-700);
+      color: var(--color-font-excerpt);
     }
     
     /* Ensure content styling is clear */
     .post-content :global(h2) {
-      color: var(--color-east-side-700);
+      color: var(--color-font-excerpt);
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
@@ -258,8 +258,12 @@
     }
     
     .post-content :global(a) {
-      color: var(--color-east-side-600);
+      color: var(--color-link);
       text-decoration: underline;
+    }
+    
+    .post-content :global(a):hover {
+      color: var(--color-link-hover);
     }
     
     .post-content :global(ul), .post-content :global(ol) {
